@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
@@ -18,7 +18,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 };
 
 // Protected Route Wrapper
-const ProtectedRoute = ({ children, isAuthenticated }: { children: JSX.Element, isAuthenticated: boolean }) => {
+const ProtectedRoute = ({ children, isAuthenticated }: { children: React.ReactElement, isAuthenticated: boolean }) => {
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
@@ -27,8 +27,6 @@ const ProtectedRoute = ({ children, isAuthenticated }: { children: JSX.Element, 
 
 // Scroll to top on route change
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
-
   // In a real effect we would scroll to top here, 
   // but for simple CSR we can just let it be or use a library.
   // For now we assume standard browser behavior.
