@@ -48,9 +48,9 @@ export const Header = () => {
             <div className={`container mx-auto px-6 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm rounded-full pr-4 pl-8 py-3' : ''} flex items-center justify-between`}>
                 {/* Logo */}
                 <Link to="/" className="flex items-center gap-2 z-50">
-                    <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white font-black text-xl">L</div>
+                    <img src="/logo.png" alt="Lions Club Logo" className="w-10 h-10 object-contain" />
                     <span className={`font-bold text-xl tracking-tight ${isScrolled ? 'text-text-main' : 'text-text-main'}`}>
-                        LIONS CLUB
+                        福岡中央ライオンズクラブ
                     </span>
                 </Link>
 
