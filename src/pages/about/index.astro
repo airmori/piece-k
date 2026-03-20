@@ -49,42 +49,42 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     役員紹介（第63期）
   </h3>
   <div class="grid grid-cols-2 gap-4">
-    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center">
+    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center scroll-reveal" style="transition-delay: 0ms;">
       <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low">
         <img src="/images/about/mizukami.jpg" alt="水上 亨併" class="w-full h-full object-cover" />
       </div>
       <span class="block text-[10px] font-bold text-primary tracking-widest uppercase mb-1">会長</span>
       <p class="font-bold text-sm">水上 亨併</p>
     </div>
-    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center">
+    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center scroll-reveal" style="transition-delay: 100ms;">
       <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low">
         <img src="/images/about/tanemura.jpg" alt="種村 剛生" class="w-full h-full object-cover" />
       </div>
       <span class="block text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">前会長</span>
       <p class="font-bold text-sm">種村 剛生</p>
     </div>
-    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center">
+    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center scroll-reveal" style="transition-delay: 200ms;">
       <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low flex items-center justify-center">
         <img src="/images/about/yoshimochi.jpg" alt="吉持 直美" class="w-full h-full object-cover" />
       </div>
       <span class="block text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">第一副会長</span>
       <p class="font-bold text-sm">吉持 直美</p>
     </div>
-    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center">
+    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center scroll-reveal" style="transition-delay: 300ms;">
       <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low flex items-center justify-center">
         <img src="/images/about/miyazaki.jpg" alt="宮崎 増恵" class="w-full h-full object-cover" />
       </div>
       <span class="block text-[10px] font-bold text-secondary tracking-widest uppercase mb-1">幹事</span>
       <p class="font-bold text-sm">宮崎 増恵</p>
     </div>
-    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center">
+    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center scroll-reveal" style="transition-delay: 400ms;">
       <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low flex items-center justify-center">
         <img src="/images/about/taguchi.jpg" alt="田口 吾郎" class="w-full h-full object-cover" />
       </div>
       <span class="block text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">会計</span>
       <p class="font-bold text-sm">田口 吾郎</p>
     </div>
-    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center">
+    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center scroll-reveal" style="transition-delay: 500ms;">
       <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low flex items-center justify-center">
         <img src="/images/about/matsuno.jpg" alt="松野 英明" class="w-full h-full object-cover" />
       </div>
@@ -98,9 +98,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <section class="mb-10">
   <h3 class="text-xl font-bold font-headline mb-6 flex items-center gap-2">
     <span class="w-1 h-6 bg-primary-container rounded-full"></span>
-    第63期 会長スローガン【結束・奉仕】
+    第63期 会長スローガン
   </h3>
   <div class="bg-surface-container-lowest rounded-xl p-5 space-y-4">
+    <p class="text-lg font-bold text-on-surface">【結束・奉仕】</p>
     <p class="text-sm text-on-surface-variant leading-relaxed">福岡中央ライオンズクラブの歴史を重んじ、「We Serve」の精神のもとに力を合わせ、クラブとしての一体感を強め、全員の力で奉仕活動を行っていきます。</p>
     <div class="flex items-start gap-3">
       <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5" style="font-size:20px;">flag</span>
@@ -205,4 +206,29 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   </div>
 </section>
 </main>
+
+<style>
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+</script>
 </BaseLayout>

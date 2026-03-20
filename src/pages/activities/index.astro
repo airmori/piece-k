@@ -37,12 +37,12 @@ function formatDateDot(dateStr: string) {
 <!-- Activities Card Grid -->
 <div class="grid gap-6">
   {activitiesWithContent.map((ev) => (
-    <a class="block activity-card" data-category={ev.category} href={`/events/${ev.slug}/`}>
+    <a class="block activity-card scroll-reveal" data-category={ev.category} href={`/events/${ev.slug}/`}>
       <article class="group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden shadow-[0_8px_32px_rgba(27,28,28,0.04)] active:scale-98 transition-all duration-300">
         <div class="aspect-[16/10] w-full relative overflow-hidden">
           <img
             alt={ev.title}
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             src={`/images/activities/${ev.imageDir}/${ev.heroImage}`}
           />
           <div class="absolute top-4 left-4">
@@ -129,7 +129,35 @@ function formatDateDot(dateStr: string) {
 
   updateBtnStyles();
   render();
+
+  // Scroll reveal animation
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.scroll-reveal').forEach(function(el) { observer.observe(el); });
 })();
 </script>
+
+<style>
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .scroll-reveal.hidden {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+</style>
 </main>
 </BaseLayout>
