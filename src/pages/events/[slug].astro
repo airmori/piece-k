@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GallerySlider from '../../components/GallerySlider.astro';
+import RelatedActivities from '../../components/RelatedActivities.astro';
+import events from '../../data/events.json';
+
+export function getStaticPaths() {
+  return events
+    .filter(e => e.slug && e.content)
+    .map(e => ({ params: { slug: e.slug }, props: { event: e } }));
+}
+
+const { event } = Astro.props;
+const allEventsWithContent = events.filter(e => e.slug && e.content);
+
+// Category color mapping
+const categoryColors = {
+  '例会': 'bg-secondary text-white',
+  'イベント': 'bg-tertiary text-white',
+  '式典': 'bg-primary text-white',
+};
+const badgeClass = categoryColors[event.category] || 'bg-on-surface/60 text-white';
+
+// Section color mapping
+const sectionColors = {
+  'primary': 'text-primary',
+  'secondary': 'text-secondary',
+  'tertiary': 'text-tertiary',
+};
+
+const imageBase = `/images/activities/${event.imageDir}`;
+---
+<BaseLayout title={event.title} activePage="activities">
+<main class="pt-16 pb-32">
+  <!-- Hero Section -->
+  <section class="relative w-full h-[530px] overflow-hidden">
+    <img alt={event.title} class="w-full h-full object-cover" src={`${imageBase}/${event.heroImage}`}/>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#1b1c1c]/80 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 p-8 w-full">
+      <div class="flex gap-2 mb-4">
+        <span class={`px-3 py-1 ${badgeClass} text-xs font-bold rounded-md tracking-wider`}>{event.category}</span>
+      </div>
+      <h1 class="text-white font-headline font-extrabold text-3xl leading-tight mb-2">{event.title}</h1>
+      <div class="flex items-center gap-4 text-white/80 text-sm font-medium">
+        <span class="flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">calendar_today</span>
+          {event.date.replace(/-/g, '.')}
+        </span>
+        {event.location && (
+          <span class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">location_on</span>
+            {event.location}
+          </span>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Body -->
+  <article class="px-6 py-10 space-y-12 max-w-2xl mx-auto">
+    <!-- Content Sections -->
+    {event.content.sections.map((section, i) => {
+      // Check if this section has a scheduleImage
+      if (section.scheduleImage) {
+        return (
+          <section class="space-y-4">
+            <div class={`flex items-center gap-3 ${sectionColors[section.color] || 'text-primary'}`}>
+              <span class="material-symbols-outlined">{section.icon}</span>
+              <h2 class="font-headline font-bold text-xl tracking-tight text-on-surface">{section.title}</h2>
+            </div>
+            <div class="rounded-xl overflow-hidden shadow-sm">
+              <img src={`${imageBase}/${event.heroImage}`} alt={`${event.title} スケジュール`} class="w-full h-auto"/>
+            </div>
+          </section>
+        );
+      }
+
+      // Regular text section
+      // If this is the section right after overview (usually index 1) and has gallery, include gallery
+      const showGallery = i === 1 && (event.gridPhotos?.length > 0 || event.sliderPhotos?.length > 0);
+
+      return (
+        <section class="space-y-4">
+          <div class={`flex items-center gap-3 ${sectionColors[section.color] || 'text-primary'}`}>
+            <span class="material-symbols-outlined">{section.icon}</span>
+            <h2 class="font-headline font-bold text-xl tracking-tight text-on-surface">{section.title}</h2>
+          </div>
+          {i === 0 ? (
+            <div class="bg-surface-container-lowest p-6 rounded-xl space-y-4 text-on-surface-variant leading-relaxed">
+              {section.paragraphs?.map(p => <p>{p}</p>)}
+            </div>
+          ) : (
+            <div class="space-y-6 text-on-surface-variant leading-relaxed">
+              {section.paragraphs?.map((p, pi) => {
+                // Insert gallery after first paragraph of the activity section
+                if (pi === 0 && showGallery) {
+                  return (
+                    <>
+                      <p>{p}</p>
+                      <GallerySlider imageDir={event.imageDir} gridPhotos={event.gridPhotos || []} sliderPhotos={event.sliderPhotos || []} />
+                    </>
+                  );
+                }
+                return <p>{p}</p>;
+              })}
+              {/* YouTube embed if present */}
+              {i === 1 && event.youtube && (
+                <div class="aspect-video rounded-xl overflow-hidden">
+                  <iframe class="w-full h-full" src={`https://www.youtube.com/embed/${event.youtube}`} title={event.title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              )}
+            </div>
+          )}
+        </section>
+      );
+    })}
+
+    <!-- Voice/Quote Section -->
+    <section class="bg-surface-container-low p-8 rounded-xl space-y-4">
+      <div class="flex items-center gap-3 text-tertiary">
+        <span class="material-symbols-outlined">{event.content.voiceIcon}</span>
+        <h2 class="font-headline font-bold text-xl tracking-tight text-on-surface">{event.content.voiceTitle}</h2>
+      </div>
+      <p class="text-on-surface-variant leading-relaxed">「{event.content.voice}」</p>
+    </section>
+
+    <!-- Related Activities -->
+    <RelatedActivities currentSlug={event.slug} events={allEventsWithContent} />
+  </article>
+</main>
+</BaseLayout>
