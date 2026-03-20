@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="お問い合わせ" activePage="contact">
+<main class="pt-20 pb-32 px-4 max-w-2xl mx-auto w-full">
+<!-- Page Header -->
+<section class="mb-8 mt-4">
+  <span class="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Contact</span>
+  <h2 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface mb-2">お問い合わせ</h2>
+  <p class="text-on-surface-variant text-sm leading-relaxed">ライオンズクラブの活動内容や、入会などについてお気軽にお問い合わせください。</p>
+</section>
+
+<!-- Contact Card -->
+<section class="mb-10">
+  <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm space-y-5">
+    <div class="text-center mb-2">
+      <p class="font-bold text-lg text-on-surface">福岡中央ライオンズクラブ</p>
+      <p class="text-sm text-on-surface-variant">事務局</p>
+    </div>
+    <div class="space-y-4">
+      <a href="mailto:lc4r-kudo@ab.auone-net.jp" class="flex items-center gap-4 p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+        <div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary flex-shrink-0">
+          <span class="material-symbols-outlined" style="font-size:20px;">mail</span>
+        </div>
+        <div>
+          <p class="text-[10px] font-bold text-on-surface-variant">メール</p>
+          <p class="text-sm font-bold text-on-surface">lc4r-kudo@ab.auone-net.jp</p>
+        </div>
+      </a>
+      <a href="tel:092-771-5781" class="flex items-center gap-4 p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+        <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+          <span class="material-symbols-outlined" style="font-size:20px;">call</span>
+        </div>
+        <div>
+          <p class="text-[10px] font-bold text-on-surface-variant">電話</p>
+          <p class="text-sm font-bold text-on-surface">092-771-5781</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Message -->
+<section>
+  <div class="bg-surface-container-low rounded-xl p-6 text-center">
+    <span class="material-symbols-outlined text-secondary mb-2" style="font-size:32px;">chat</span>
+    <p class="text-sm text-on-surface-variant leading-relaxed">活動内容のご質問、入会のご相談など、<br/>どうぞお気軽にご連絡ください。</p>
+  </div>
+</section>
+</main>
+</BaseLayout>

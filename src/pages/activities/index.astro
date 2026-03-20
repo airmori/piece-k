@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import events from '../../data/events.json';
+
+// Only events with slug (have detail pages)
+const activitiesWithContent = events
+  .filter((e): e is typeof e & { slug: string; imageDir: string; heroImage: string } => !!e.slug && !!e.imageDir && !!e.heroImage)
+  .sort((a, b) => b.date.localeCompare(a.date));
+
+const categoryBadgeMap: Record<string, string> = {
+  '例会': 'bg-secondary',
+  'イベント': 'bg-tertiary',
+  '式典': 'bg-primary',
+};
+
+function formatDateDot(dateStr: string) {
+  return dateStr.replace(/-/g, '.');
+}
+---
+<BaseLayout title="活動報告" activePage="activities">
+<main class="pt-20 pb-32 px-4 max-w-2xl mx-auto w-full">
+<!-- Page Header & Editorial Intro -->
+<section class="mb-8 mt-4">
+  <span class="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Our Impact</span>
+  <h2 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface mb-2">Activities</h2>
+  <p class="text-on-surface-variant text-sm leading-relaxed">福岡の街と共に歩む、私たちの奉仕活動の記録。</p>
+</section>
+
+<!-- Category Filter (Horizontal Scroll) -->
+<div class="flex gap-2 overflow-x-auto pb-6 -mx-4 px-4 no-scrollbar" id="filter-bar">
+  <button class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-bold shadow-sm transition-colors" data-category="all">すべて</button>
+  <button class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-colors" data-category="例会">例会</button>
+  <button class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-colors" data-category="イベント">イベント</button>
+  <button class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-colors" data-category="式典">式典</button>
+</div>
+
+<!-- Activities Card Grid -->
+<div class="grid gap-6">
+  {activitiesWithContent.map((ev) => (
+    <a class="block activity-card scroll-reveal" data-category={ev.category} href={`/events/${ev.slug}/`}>
+      <article class="group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden shadow-[0_8px_32px_rgba(27,28,28,0.04)] active:scale-98 transition-all duration-300">
+        <div class="aspect-[16/10] w-full relative overflow-hidden">
+          <img
+            alt={ev.title}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            src={`/images/activities/${ev.imageDir}/${ev.heroImage}`}
+          />
+          <div class="absolute top-4 left-4">
+            <span class:list={[categoryBadgeMap[ev.category] || 'bg-secondary', 'text-white px-3 py-1 rounded-md text-[10px] font-bold tracking-wider']}>
+              {ev.category}
+            </span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-2 text-on-surface-variant/60">
+            <span class="material-symbols-outlined text-sm">calendar_today</span>
+            <span class="text-xs font-medium font-headline">{formatDateDot(ev.date)}</span>
+          </div>
+          <h3 class="text-lg font-bold text-on-surface leading-snug group-hover:text-secondary transition-colors">{ev.title}</h3>
+        </div>
+      </article>
+    </a>
+  ))}
+</div>
+
+<!-- Load More Button -->
+<div class="mt-12 flex justify-center" id="load-more-wrap">
+  <button id="load-more-btn" class="group flex items-center gap-3 bg-surface-container-low px-8 py-4 rounded-full border border-outline-variant/10 hover:bg-surface-container-high transition-all active:scale-95">
+    <span class="text-on-surface font-bold text-sm tracking-wide">もっと見る</span>
+    <span class="material-symbols-outlined text-primary group-hover:translate-y-1 transition-transform">expand_more</span>
+  </button>
+</div>
+
+<script>
+(function() {
+  var INITIAL = 5;
+  var PER_PAGE = 5;
+  var allCards = Array.from(document.querySelectorAll('.activity-card'));
+  var filterBtns = Array.from(document.querySelectorAll('.filter-btn'));
+  var loadMoreWrap = document.getElementById('load-more-wrap');
+  var loadMoreBtn = document.getElementById('load-more-btn');
+  var currentFilter = 'all';
+  var shown = 0;
+
+  var activeClass = 'bg-secondary-container text-on-secondary-container font-bold shadow-sm';
+  var inactiveClass = 'bg-surface-container-lowest text-on-surface-variant border border-outline-variant/15 font-medium hover:bg-surface-container-high';
+
+  function getFiltered() {
+    if (currentFilter === 'all') return allCards;
+    return allCards.filter(function(c) { return c.dataset.category === currentFilter; });
+  }
+
+  function render() {
+    var filtered = getFiltered();
+    shown = 0;
+    allCards.forEach(function(c) { c.classList.add('hidden'); });
+    showNext(INITIAL, filtered);
+  }
+
+  function showNext(count, filtered) {
+    if (!filtered) filtered = getFiltered();
+    var end = Math.min(shown + count, filtered.length);
+    for (var i = shown; i < end; i++) {
+      filtered[i].classList.remove('hidden');
+    }
+    shown = end;
+    loadMoreWrap.style.display = shown >= filtered.length ? 'none' : 'flex';
+  }
+
+  function updateBtnStyles() {
+    filterBtns.forEach(function(btn) {
+      var isActive = btn.dataset.category === currentFilter;
+      btn.className = 'filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm transition-colors '
+        + (isActive ? activeClass : inactiveClass);
+    });
+  }
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      currentFilter = btn.dataset.category;
+      updateBtnStyles();
+      render();
+    });
+  });
+
+  loadMoreBtn.addEventListener('click', function() {
+    showNext(PER_PAGE);
+  });
+
+  updateBtnStyles();
+  render();
+
+  // Scroll reveal animation
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.scroll-reveal').forEach(function(el) { observer.observe(el); });
+})();
+</script>
+
+<style>
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .scroll-reveal.hidden {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+</style>
+</main>
+</BaseLayout>

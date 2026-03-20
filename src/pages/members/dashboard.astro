@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const documents = [
+  { title: '2026年3月 第1例会資料', date: '2026.03.05', href: '/members/documents/2026-03-05_meeting.pdf' },
+  { title: '2026年2月 第2例会資料', date: '2026.02.25', href: '/members/documents/2026-02-25_meeting.pdf' },
+  { title: '2026年2月 第1例会資料', date: '2026.02.03', href: '/members/documents/2026-02-03_meeting.pdf' },
+  { title: '2026年2月 第1例会資料（別紙）', date: '2026.02.03', href: '/members/documents/2026-02-03_meeting-1.pdf' },
+  { title: '2026年1月 第1例会資料', date: '2026.01.21', href: '/members/documents/2026-01-21_meeting.pdf' },
+];
+---
+<BaseLayout title="会員専用" activePage="none">
+  <main class="pt-20 pb-32 px-4 max-w-2xl mx-auto w-full">
+    <!-- Page Header -->
+    <section class="mb-8 mt-4">
+      <div class="flex items-center gap-2 mb-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:28px;">lock</span>
+      </div>
+      <h2 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface mb-2">会員専用</h2>
+      <p class="text-on-surface-variant text-sm leading-relaxed">例会資料をご確認いただけます。</p>
+    </section>
+
+    <!-- Document List -->
+    <div class="flex flex-col gap-4" id="doc-list">
+      {documents.map((doc) => (
+        <div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex items-center gap-4">
+          <span class="material-symbols-outlined text-primary flex-shrink-0" style="font-size:28px;">description</span>
+          <div class="flex-1 min-w-0">
+            <p class="font-['Noto_Sans_JP'] font-bold text-sm text-on-surface leading-snug">{doc.title}</p>
+            <p class="text-xs text-on-surface-variant mt-0.5">{doc.date}</p>
+          </div>
+          <a href={doc.href} target="_blank" class="flex-shrink-0 bg-primary text-on-primary text-xs font-bold px-4 py-2 rounded-full hover:opacity-90 active:scale-95 transition-all">開く</a>
+        </div>
+      ))}
+    </div>
+
+    <!-- Load More Button -->
+    <div class="mt-10 flex justify-center" id="load-more-wrap">
+      <button id="load-more-btn" class="group flex items-center gap-3 bg-surface-container-low px-8 py-4 rounded-full border border-outline-variant/10 hover:bg-surface-container-high transition-all active:scale-95">
+        <span class="text-on-surface font-bold text-sm tracking-wide">もっと見る</span>
+        <span class="material-symbols-outlined text-primary group-hover:translate-y-1 transition-transform">expand_more</span>
+      </button>
+    </div>
+
+    <script>
+      (function() {
+        const INITIAL = 10;
+        const PER_PAGE = 10;
+        const list = document.getElementById('doc-list')!;
+        const cards = Array.from(list.children) as HTMLElement[];
+        let shown = 0;
+
+        function showNext(count: number) {
+          const end = Math.min(shown + count, cards.length);
+          for (let i = shown; i < end; i++) {
+            cards[i].classList.remove('hidden');
+          }
+          shown = end;
+          if (shown >= cards.length) {
+            document.getElementById('load-more-wrap')!.style.display = 'none';
+          }
+        }
+
+        cards.forEach(function(c) { c.classList.add('hidden'); });
+        showNext(INITIAL);
+
+        document.getElementById('load-more-btn')!.addEventListener('click', function() {
+          showNext(PER_PAGE);
+        });
+      })();
+    </script>
+  </main>
+</BaseLayout>

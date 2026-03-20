@@ -1,0 +1,69 @@
+---
+interface EventData {
+  slug: string;
+  date: string;
+  title: string;
+  category: string;
+  imageDir: string;
+  heroImage: string;
+}
+
+interface Props {
+  currentSlug: string;
+  events: EventData[];
+}
+
+const { currentSlug, events } = Astro.props;
+
+const categoryColors: Record<string, string> = {
+  '例会': 'text-primary',
+  'イベント': 'text-tertiary',
+  '式典': 'text-secondary',
+};
+
+const related = events
+  .filter((e) => e.slug !== currentSlug)
+  .slice(0, 2);
+---
+
+{related.length > 0 && (
+  <section class="space-y-6 pt-6">
+    <div class="flex items-center justify-between">
+      <h3 class="font-headline font-bold text-lg text-on-surface">他の活動を見る</h3>
+      <a
+        class="text-xs text-secondary font-bold flex items-center gap-1"
+        href="/activities/"
+      >
+        すべて見る{' '}
+        <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+      </a>
+    </div>
+    <div class="space-y-4">
+      {related.map((event) => {
+        const imageSrc = `/images/activities/${event.imageDir}/${event.heroImage}`;
+        const catColor = categoryColors[event.category] ?? 'text-primary';
+        return (
+          <a
+            href={`/events/${event.slug}/`}
+            class="bg-surface-container-lowest rounded-xl overflow-hidden flex shadow-sm"
+          >
+            <div class="w-24 h-24 shrink-0">
+              <img
+                alt={event.title}
+                class="w-full h-full object-cover"
+                src={imageSrc}
+              />
+            </div>
+            <div class="p-4 flex flex-col justify-center gap-1">
+              <span class:list={[catColor, 'text-[10px] font-bold uppercase tracking-wider']}>
+                {event.category}
+              </span>
+              <h4 class="font-bold text-sm leading-snug">{event.title}</h4>
+              <p class="text-[10px] text-on-surface-variant/60">{event.date}</p>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+)}

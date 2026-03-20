@@ -1,0 +1,33 @@
+---
+interface Props {
+  activePage: 'home' | 'schedule' | 'activities' | 'about' | 'contact' | 'none';
+}
+const { activePage } = Astro.props;
+
+const tabs = [
+  { id: 'home', href: '/', icon: 'home', label: 'ホーム' },
+  { id: 'schedule', href: '/schedule/', icon: 'calendar_month', label: '予定' },
+  { id: 'activities', href: '/activities/', icon: 'volunteer_activism', label: '活動' },
+  { id: 'about', href: '/about/', icon: 'info', label: '紹介' },
+  { id: 'contact', href: '/contact/', icon: 'mail', label: '連絡' },
+];
+---
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-3 bg-[#fbf9f8]/85 backdrop-blur-lg rounded-t-[1.5rem] shadow-[0_-4px_20px_rgba(0,0,0,0.04)]">
+  {tabs.map(tab => {
+    const isActive = tab.id === activePage;
+    const activeClass = 'text-[#1d5fa8] bg-[#7ab0ff]/10 rounded-2xl';
+    const inactiveClass = 'text-[#1b1c1c] opacity-60 hover:bg-[#f6f3f2]';
+    return (
+      <a
+        class={`flex flex-col items-center justify-center px-3 py-1 transition-all duration-200 ${isActive ? activeClass : inactiveClass}`}
+        href={tab.href}
+      >
+        <span
+          class="material-symbols-outlined"
+          style={isActive ? "font-variation-settings: 'FILL' 1;" : ""}
+        >{tab.icon}</span>
+        <span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">{tab.label}</span>
+      </a>
+    );
+  })}
+</nav>
