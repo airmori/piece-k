@@ -27,18 +27,21 @@ export default {
     const url = new URL(request.url);
     const password = env.MEMBER_PASSWORD;
 
-    // Handle POST to /members/ (login attempt)
-    if (url.pathname === '/members/' && request.method === 'POST') {
+    // Handle POST to /api/members/login (login attempt)
+    if (url.pathname === '/api/members/login' && request.method === 'POST') {
       if (!password) {
-        return new Response(null, { status: 302, headers: { 'Location': '/members/dashboard.html' } });
+        return new Response(JSON.stringify({ ok: true }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        });
       }
 
-      const contentType = request.headers.get('Content-Type') || '';
       let submitted = '';
-
-      if (contentType.includes('application/x-www-form-urlencoded')) {
-        const formData = await request.formData();
-        submitted = formData.get('password') || '';
+      try {
+        const body = await request.json();
+        submitted = body.password || '';
+      } catch (e) {
+        // ignore parse error
       }
 
       if (submitted === password) {

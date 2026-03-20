@@ -39,15 +39,12 @@ document.getElementById('login-form').addEventListener('submit', function(e) {
   e.preventDefault();
   var pw = document.getElementById('password-input').value;
   // POST to Worker for server-side validation
-  fetch('/members/', {
+  fetch('/api/members/login', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: 'password=' + encodeURIComponent(pw)
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ password: pw })
   }).then(function(res) {
-    if (res.redirected) {
-      window.location.href = res.url;
-    } else if (res.ok) {
-      // Worker set cookie, redirect to dashboard
+    if (res.ok) {
       window.location.href = '/members/dashboard.html';
     } else {
       document.getElementById('error-msg').classList.remove('hidden');
