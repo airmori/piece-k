@@ -1,0 +1,69 @@
+---
+interface Props {
+  event: {
+    date: string;
+    title: string;
+    category: string;
+    desc?: string;
+    slug: string;
+    imageDir: string;
+    heroImage: string;
+  };
+  size: 'large' | 'small';
+}
+
+const { event, size } = Astro.props;
+
+const categoryColors: Record<string, string> = {
+  '例会': 'bg-secondary text-white',
+  'イベント': 'bg-tertiary text-white',
+  '式典': 'bg-primary text-white',
+};
+
+const badgeClass = categoryColors[event.category] ?? 'bg-secondary text-white';
+const imageSrc = `/images/activities/${event.imageDir}/${event.heroImage}`;
+const href = `/events/${event.slug}/`;
+---
+
+{size === 'large' ? (
+  <a href={href} class="block activity-card" data-category={event.category}>
+    <article class="group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden shadow-[0_8px_32px_rgba(27,28,28,0.04)] active:scale-98 transition-all duration-300">
+      <div class="aspect-[16/10] w-full relative overflow-hidden">
+        <img
+          alt={event.title}
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          src={imageSrc}
+        />
+        <div class="absolute top-4 left-4">
+          <span class:list={[badgeClass, 'px-3 py-1 rounded-md text-[10px] font-bold tracking-wider']}>
+            {event.category}
+          </span>
+        </div>
+      </div>
+      <div class="p-6">
+        <div class="flex items-center gap-2 mb-2 text-on-surface-variant/60">
+          <span class="material-symbols-outlined text-sm">calendar_today</span>
+          <span class="text-xs font-medium font-headline">{event.date}</span>
+        </div>
+        <h3 class="text-lg font-bold text-on-surface leading-snug group-hover:text-secondary transition-colors">
+          {event.title}
+        </h3>
+        {event.desc && (
+          <p class="text-sm text-on-surface/70 line-clamp-2 mt-2">{event.desc}</p>
+        )}
+      </div>
+    </article>
+  </a>
+) : (
+  <a href={href} class="block bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col transition-transform active:scale-[0.98]">
+    <img
+      alt={event.title}
+      class="h-32 w-full object-cover"
+      src={imageSrc}
+    />
+    <div class="p-3">
+      <span class="text-[10px] font-bold text-on-surface/50">{event.date}</span>
+      <h4 class="font-bold text-sm mt-1 line-clamp-2">{event.title}</h4>
+    </div>
+  </a>
+)}
