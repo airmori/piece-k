@@ -1,5 +1,4 @@
-// Cloudflare Pages Function: Password protection for /members/*
-// Password is stored in Cloudflare dashboard environment variable: MEMBER_PASSWORD
+// Cloudflare Worker: Password protection for /members/*
 
 const COOKIE_NAME = 'members_auth';
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30 days
@@ -56,62 +55,61 @@ async function hashPassword(password, salt) {
   return btoa(String.fromCharCode(...new Uint8Array(hash)));
 }
 
-async function createToken(password, secret) {
-  return await hashPassword(password, secret);
-}
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    const isMembers = url.pathname.startsWith('/members');
 
-async function verifyToken(token, password, secret) {
-  const expected = await hashPassword(password, secret);
-  return token === expected;
-}
-
-export async function onRequest(context) {
-  const { request, env, next } = context;
-  const password = env.MEMBER_PASSWORD;
-
-  if (!password) {
-    return next();
-  }
-
-  const secret = 'fukuoka-chuo-lions-salt';
-
-  // Check for valid auth cookie
-  const cookieHeader = request.headers.get('Cookie') || '';
-  const cookies = Object.fromEntries(
-    cookieHeader.split(';').map(c => {
-      const [k, ...v] = c.trim().split('=');
-      return [k, v.join('=')];
-    })
-  );
-
-  if (cookies[COOKIE_NAME]) {
-    const valid = await verifyToken(cookies[COOKIE_NAME], password, secret);
-    if (valid) {
-      return next();
-    }
-  }
-
-  // Handle POST (login attempt)
-  if (request.method === 'POST') {
-    const formData = await request.formData();
-    const submitted = formData.get('password');
-
-    if (submitted === password) {
-      const token = await createToken(password, secret);
-      const url = new URL(request.url);
-      const response = new Response(null, {
-        status: 302,
-        headers: {
-          'Location': url.pathname,
-          'Set-Cookie': `${COOKIE_NAME}=${token}; Path=/members; HttpOnly; Secure; SameSite=Lax; Max-Age=${COOKIE_MAX_AGE}`,
-        },
-      });
-      return response;
+    // If not /members, serve static assets directly
+    if (!isMembers) {
+      return env.ASSETS.fetch(request);
     }
 
-    return loginPage(true);
-  }
+    const password = env.MEMBER_PASSWORD;
 
-  // Show login form
-  return loginPage(false);
-}
+    // If no password configured, serve directly
+    if (!password) {
+      return env.ASSETS.fetch(request);
+    }
+
+    const secret = 'fukuoka-chuo-lions-salt';
+
+    // Check for valid auth cookie
+    const cookieHeader = request.headers.get('Cookie') || '';
+    const cookies = Object.fromEntries(
+      cookieHeader.split(';').map(c => {
+        const [k, ...v] = c.trim().split('=');
+        return [k, v.join('=')];
+      })
+    );
+
+    if (cookies[COOKIE_NAME]) {
+      const expected = await hashPassword(password, secret);
+      if (cookies[COOKIE_NAME] === expected) {
+        return env.ASSETS.fetch(request);
+      }
+    }
+
+    // Handle POST (login attempt)
+    if (request.method === 'POST') {
+      const formData = await request.formData();
+      const submitted = formData.get('password');
+
+      if (submitted === password) {
+        const token = await hashPassword(password, secret);
+        return new Response(null, {
+          status: 302,
+          headers: {
+            'Location': url.pathname,
+            'Set-Cookie': `${COOKIE_NAME}=${token}; Path=/members; HttpOnly; Secure; SameSite=Lax; Max-Age=${COOKIE_MAX_AGE}`,
+          },
+        });
+      }
+
+      return loginPage(true);
+    }
+
+    // Show login form
+    return loginPage(false);
+  },
+};
