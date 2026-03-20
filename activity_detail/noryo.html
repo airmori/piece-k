@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans+JP:wght@400;500;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error-container": "#ffdad6",
+              "on-surface": "#1b1c1c",
+              "surface-container": "#f0eded",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#ffdad5",
+              "background": "#fbf9f8",
+              "on-error": "#ffffff",
+              "outline-variant": "#e7bdb7",
+              "outline": "#926f6a",
+              "on-tertiary-container": "#ffeee0",
+              "surface-tint": "#c00010",
+              "tertiary": "#7d4900",
+              "secondary-fixed-dim": "#a6c8ff",
+              "secondary": "#1d5fa8",
+              "tertiary-fixed": "#ffdcbd",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#e4e2e1",
+              "on-primary-fixed-variant": "#930009",
+              "surface-bright": "#fbf9f8",
+              "on-primary-container": "#ffedeb",
+              "surface-variant": "#e4e2e1",
+              "on-background": "#1b1c1c",
+              "surface-dim": "#dcd9d9",
+              "on-surface-variant": "#5d3f3c",
+              "surface-container-high": "#eae8e7",
+              "on-secondary-fixed": "#001c3b",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed": "#410002",
+              "primary-fixed-dim": "#ffb4ab",
+              "inverse-surface": "#303030",
+              "secondary-container": "#7ab0ff",
+              "primary-container": "#d9161b",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#693c00",
+              "on-error-container": "#93000a",
+              "surface": "#fbf9f8",
+              "inverse-on-surface": "#f3f0f0",
+              "on-tertiary-fixed": "#2c1600",
+              "tertiary-container": "#9f5e00",
+              "tertiary-fixed-dim": "#ffb86e",
+              "secondary-fixed": "#d5e3ff",
+              "inverse-primary": "#ffb4ab",
+              "primary": "#af000d",
+              "surface-container-low": "#f6f3f2",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed-variant": "#004787",
+              "on-secondary-container": "#00417e"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans", "Noto Sans JP"],
+              "body": ["Plus Jakarta Sans", "Noto Sans JP"],
+              "label": ["Inter", "Noto Sans JP"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fbf9f8]/85 backdrop-blur-md shadow-[0_8px_32px_rgba(27,28,28,0.06)] h-16 flex items-center justify-between px-6">
+<a href="/" class="flex items-center gap-2">
+<img src="/images/logo2.png" alt="Lions Club" class="h-9 w-9 object-contain flex-shrink-0"/>
+<span class="font-['Noto_Sans_JP'] font-bold text-sm tracking-tight text-[#1b1c1c]">福岡中央ライオンズクラブ</span>
+</a>
+<a href="/members/" class="w-9 h-9 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-size:20px;">lock</span>
+</a>
+</header>
+<main class="pt-16 pb-32">
+<!-- Hero Section -->
+<section class="relative w-full h-[530px] overflow-hidden">
+<img alt="納涼例会メイン画像" class="w-full h-full object-cover" src="/images/activities/2025-08-20_noryo/noryo01.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<div class="flex gap-2 mb-4">
+<span class="px-3 py-1 bg-secondary text-white text-xs font-bold rounded-md tracking-wider">例会</span>
+</div>
+<h1 class="text-white font-headline font-extrabold text-3xl leading-tight mb-2">納涼例会</h1>
+<div class="flex items-center gap-4 text-white/80 text-sm font-medium">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span>2025.08.20</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>福岡市中央区</span>
+</div>
+</div>
+</section>
+<!-- Content Body -->
+<article class="px-6 py-10 space-y-12 max-w-2xl mx-auto">
+<!-- Section 1: 例会の概要 -->
+<section class="space-y-4">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined" data-icon="celebration">celebration</span>
+<h2 class="font-headline font-bold text-xl tracking-tight text-on-surface">例会の概要</h2>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl space-y-4 text-on-surface-variant leading-relaxed">
+<p>納涼例会は、暑い夏の季節に会員同士が集い、涼を楽しみながら親睦を深める伝統的な夏の例会です。福岡中央ライオンズクラブでは毎年この時期に納涼例会を開催し、日頃の活動への感謝と会員間の絆を確認し合う大切な行事として位置づけています。</p>
+<p>今年は2025年8月20日、福岡市中央区の会場にてビールやかき氷など夏らしい飲食を楽しみながら、和やかな雰囲気の中で例会を執り行いました。普段の活動報告や議事とは一味違い、リラックスした形式で会員が交流できる貴重な機会となっています。</p>
+</div>
+</section>
+<!-- Section 2: 当日の様子 -->
+<section class="space-y-4">
+<div class="flex items-center gap-3 text-secondary">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<h2 class="font-headline font-bold text-xl tracking-tight text-on-surface">当日の様子</h2>
+</div>
+<div class="space-y-6 text-on-surface-variant leading-relaxed">
+<p>当日は真夏の暑さが続く中、会員が続々と会場に集まり、冷えたビールや冷たい飲み物で乾杯を行いました。夏らしい料理が並ぶテーブルを囲みながら、近況報告や今後の活動への期待など、話題は尽きることなく広がりました。</p>
+<!-- Gallery: 2-up grid + slider -->
+<div class="grid grid-cols-2 gap-3">
+<div class="aspect-square rounded-xl overflow-hidden bg-surface-container">
+<img alt="納涼例会の様子1" class="w-full h-full object-cover" src="/images/activities/2025-08-20_noryo/noryo02.jpg"/>
+</div>
+<div class="aspect-square rounded-xl overflow-hidden bg-surface-container">
+<img alt="納涼例会の様子2" class="w-full h-full object-cover" src="/images/activities/2025-08-20_noryo/noryo03.jpg"/>
+</div>
+</div>
+<div class="relative">
+<div class="flex gap-3 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 -mx-6 px-6 gallery-slider">
+<div class="snap-center shrink-0 w-[85%] aspect-[4/3] rounded-xl overflow-hidden bg-surface-container">
+<img alt="納涼例会の様子3" class="w-full h-full object-cover" src="/images/activities/2025-08-20_noryo/noryo04.jpg"/>
+</div>
+<div class="snap-center shrink-0 w-[85%] aspect-[4/3] rounded-xl overflow-hidden bg-surface-container">
+<img alt="納涼例会の様子4" class="w-full h-full object-cover" src="/images/activities/2025-08-20_noryo/noryo05.jpg"/>
+</div>
+<div class="snap-center shrink-0 w-[85%] aspect-[4/3] rounded-xl overflow-hidden bg-surface-container">
+<img alt="納涼例会の様子5" class="w-full h-full object-cover" src="/images/activities/2025-08-20_noryo/noryo06.jpg"/>
+</div>
+</div>
+<div class="flex items-center justify-center gap-3 mt-2 gallery-controls">
+<button class="gallery-prev w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest active:scale-90 transition-all">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<div class="flex gap-2 gallery-dots">
+<button class="w-3 h-3 rounded-full bg-primary transition-colors"></button>
+<button class="w-3 h-3 rounded-full bg-on-surface/20 transition-colors"></button>
+<button class="w-3 h-3 rounded-full bg-on-surface/20 transition-colors"></button>
+</div>
+<button class="gallery-next w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest active:scale-90 transition-all">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+<p>食事をともにしながらの会話は自然と弾み、普段はゆっくり話せない会員同士が互いの近況や想いを語り合う場となりました。夏の熱気を忘れさせるほどの笑いと活気に包まれた納涼例会は、クラブの結束をさらに深める一夜となりました。</p>
+</div>
+</section>
+<!-- Section 3: 参加者の声 -->
+<section class="bg-surface-container-low p-8 rounded-xl space-y-4">
+<div class="flex items-center gap-3 text-tertiary">
+<span class="material-symbols-outlined" data-icon="format_quote">format_quote</span>
+<h2 class="font-headline font-bold text-xl tracking-tight text-on-surface">参加者の声</h2>
+</div>
+<p class="text-on-surface-variant leading-relaxed">
+                    「毎年楽しみにしている納涼例会。今年も仲間と笑いながら過ごせて、夏の疲れが吹き飛びました。クラブの一員であることを改めて誇りに感じる夜でした。」
+                </p>
+</section>
+<!-- Related Activities -->
+<section class="space-y-6 pt-6">
+<div class="flex items-center justify-between"><h3 class="font-headline font-bold text-lg text-on-surface">他の活動を見る</h3><a class="text-xs text-secondary font-bold flex items-center gap-1" href="/activities/">すべて見る <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span></a></div>
+<div class="space-y-4">
+<!-- Related Card 1: クリスマス例会 -->
+<a href="christmas.html" class="bg-surface-container-lowest rounded-xl overflow-hidden flex shadow-sm">
+<div class="w-24 h-24 shrink-0">
+<img alt="クリスマス例会" class="w-full h-full object-cover" src="/images/activities/2025-12-16_christmas/christmas01.jpg"/>
+</div>
+<div class="p-4 flex flex-col justify-center gap-1">
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">例会</span>
+<h4 class="font-bold text-sm leading-snug">クリスマス例会</h4>
+<p class="text-[10px] text-on-surface-variant/60">2025.12.16</p>
+</div>
+</a>
+<!-- Related Card 2: 新会員入会式 -->
+<a href="new_member.html" class="bg-surface-container-lowest rounded-xl overflow-hidden flex shadow-sm">
+<div class="w-24 h-24 shrink-0">
+<img alt="新会員入会式" class="w-full h-full object-cover" src="/images/activities/2025-11-04_new-member/new-member01.jpg"/>
+</div>
+<div class="p-4 flex flex-col justify-center gap-1">
+<span class="text-[10px] text-primary font-bold uppercase tracking-wider">例会</span>
+<h4 class="font-bold text-sm leading-snug">新会員入会式</h4>
+<p class="text-[10px] text-on-surface-variant/60">2025.11.04</p>
+</div>
+</a>
+</div>
+</section>
+</article>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-[#f6f3f2] flex items-center justify-center px-8 py-8 mb-24">
+<div class="text-[10px] text-[#1b1c1c]/50 font-label">© 2026 福岡中央ライオンズクラブ</div>
+</footer>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-3 bg-[#fbf9f8]/85 backdrop-blur-lg rounded-t-[1.5rem] shadow-[0_-4px_20px_rgba(0,0,0,0.04)]">
+<a class="flex flex-col items-center justify-center text-[#1b1c1c] opacity-60 px-3 py-1 rounded-2xl transition-all" href="/">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">HOME</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1c] opacity-60 px-3 py-1 rounded-2xl transition-all" href="/schedule/">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">スケジュール</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1d5fa8] bg-[#7ab0ff]/10 px-3 py-1 rounded-2xl transition-all" href="/activities/">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">活動報告</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1c] opacity-60 px-3 py-1 rounded-2xl transition-all" href="/about/">
+<span class="material-symbols-outlined">info</span>
+<span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">クラブ紹介</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1c] opacity-60 px-3 py-1 rounded-2xl transition-all" href="/contact/">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">お問い合わせ</span>
+</a>
+</nav>
+<style>
+.gallery-slider::-webkit-scrollbar { display: none; }
+.gallery-slider { scrollbar-width: none; -ms-overflow-style: none; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.gallery-slider').forEach(function(slider) {
+    var wrapper = slider.parentElement;
+    var dots = wrapper.querySelectorAll('.gallery-dots button');
+    var prevBtn = wrapper.querySelector('.gallery-prev');
+    var nextBtn = wrapper.querySelector('.gallery-next');
+    var gap = 12;
+
+    function getChildWidth() { return slider.children[0].offsetWidth + gap; }
+    function getIndex() { return Math.round(slider.scrollLeft / getChildWidth()); }
+    function scrollTo(i) { slider.scrollTo({ left: i * getChildWidth(), behavior: 'smooth' }); }
+    function updateDots(index) {
+      dots.forEach(function(dot, i) {
+        dot.className = i === index
+          ? 'w-3 h-3 rounded-full bg-primary transition-colors'
+          : 'w-3 h-3 rounded-full bg-on-surface/20 transition-colors';
+      });
+    }
+
+    slider.addEventListener('scroll', function() { updateDots(getIndex()); });
+
+    dots.forEach(function(dot, i) {
+      dot.addEventListener('click', function() { scrollTo(i); });
+    });
+
+    if (prevBtn) prevBtn.addEventListener('click', function() {
+      var i = getIndex();
+      if (i > 0) scrollTo(i - 1);
+    });
+    if (nextBtn) nextBtn.addEventListener('click', function() {
+      var i = getIndex();
+      if (i < slider.children.length - 1) scrollTo(i + 1);
+    });
+  });
+});
+</script>
+</body></html>

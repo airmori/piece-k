@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>活動報告 | 福岡中央ライオンズクラブ</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error-container": "#ffdad6",
+              "on-surface": "#1b1c1c",
+              "surface-container": "#f0eded",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#ffdad5",
+              "background": "#fbf9f8",
+              "on-error": "#ffffff",
+              "outline-variant": "#e7bdb7",
+              "outline": "#926f6a",
+              "on-tertiary-container": "#ffeee0",
+              "surface-tint": "#c00010",
+              "tertiary": "#7d4900",
+              "secondary-fixed-dim": "#a6c8ff",
+              "secondary": "#1d5fa8",
+              "tertiary-fixed": "#ffdcbd",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#e4e2e1",
+              "on-primary-fixed-variant": "#930009",
+              "surface-bright": "#fbf9f8",
+              "on-primary-container": "#ffedeb",
+              "surface-variant": "#e4e2e1",
+              "on-background": "#1b1c1c",
+              "surface-dim": "#dcd9d9",
+              "on-surface-variant": "#5d3f3c",
+              "surface-container-high": "#eae8e7",
+              "on-secondary-fixed": "#001c3b",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed": "#410002",
+              "primary-fixed-dim": "#ffb4ab",
+              "inverse-surface": "#303030",
+              "secondary-container": "#7ab0ff",
+              "primary-container": "#d9161b",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#693c00",
+              "on-error-container": "#93000a",
+              "surface": "#fbf9f8",
+              "inverse-on-surface": "#f3f0f0",
+              "on-tertiary-fixed": "#2c1600",
+              "tertiary-container": "#9f5e00",
+              "tertiary-fixed-dim": "#ffb86e",
+              "secondary-fixed": "#d5e3ff",
+              "inverse-primary": "#ffb4ab",
+              "primary": "#af000d",
+              "surface-container-low": "#f6f3f2",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed-variant": "#004787",
+              "on-secondary-container": "#00417e"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Inter", "Noto Sans JP"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Noto Sans JP', 'Plus Jakarta Sans', sans-serif;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fbf9f8]/85 backdrop-blur-md shadow-[0_8px_32px_rgba(27,28,28,0.06)] h-16 flex items-center justify-between px-6">
+<a href="/" class="flex items-center gap-2">
+<img src="/images/logo2.png" alt="Lions Club" class="h-9 w-9 object-contain flex-shrink-0"/>
+<span class="font-['Noto_Sans_JP'] font-bold text-sm tracking-tight text-[#1b1c1c]">福岡中央ライオンズクラブ</span>
+</a>
+<a href="/members/" class="w-9 h-9 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-size:20px;">lock</span>
+</a>
+</header>
+<main class="pt-20 pb-32 px-4 max-w-2xl mx-auto w-full">
+<!-- Page Header & Editorial Intro -->
+<section class="mb-8 mt-4">
+<span class="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Our Impact</span>
+<h2 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface mb-2">Activities</h2>
+<p class="text-on-surface-variant text-sm leading-relaxed">福岡の街と共に歩む、私たちの奉仕活動の記録。</p>
+</section>
+<!-- Category Filter (Horizontal Scroll) -->
+<div class="flex gap-2 overflow-x-auto pb-6 -mx-4 px-4 no-scrollbar" id="filter-bar">
+<button class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-bold shadow-sm transition-colors" data-category="all">すべて</button>
+<button class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-colors" data-category="例会">例会</button>
+<button class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-colors" data-category="イベント">イベント</button>
+<button class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-colors" data-category="式典">式典</button>
+</div>
+<!-- Activities Card Grid -->
+<div class="grid gap-6">
+<!-- Activity Card: さくらフェスタ -->
+<a class="block activity-card" data-category="イベント" href="/activity_detail/sakura_festa.html">
+<article class="group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden shadow-[0_8px_32px_rgba(27,28,28,0.04)] active:scale-98 transition-all duration-300">
+<div class="aspect-[16/10] w-full relative overflow-hidden">
+<img alt="さくらフェスタ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="/images/activities/2026-04-07_sakura-festa/schedule.jpg"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary text-white px-3 py-1 rounded-md text-[10px] font-bold tracking-wider">イベント</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span class="text-xs font-medium font-headline">2026.04.07</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface leading-snug group-hover:text-secondary transition-colors">さくらフェスタ</h3>
+</div>
+</article>
+</a>
+<!-- Activity Card: クリスマス例会 -->
+<a class="block activity-card" data-category="例会" href="/activity_detail/christmas.html">
+<article class="group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden shadow-[0_8px_32px_rgba(27,28,28,0.04)] active:scale-98 transition-all duration-300">
+<div class="aspect-[16/10] w-full relative overflow-hidden">
+<img alt="クリスマス例会" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="/images/activities/2025-12-16_christmas/christmas01.jpg"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary text-white px-3 py-1 rounded-md text-[10px] font-bold tracking-wider">例会</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span class="text-xs font-medium font-headline">2025.12.16</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface leading-snug group-hover:text-secondary transition-colors">クリスマス例会</h3>
+</div>
+</article>
+</a>
+<!-- Activity Card: 新会員入会式 -->
+<a class="block activity-card" data-category="例会" href="/activity_detail/new_member.html">
+<article class="group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden shadow-[0_8px_32px_rgba(27,28,28,0.04)] active:scale-98 transition-all duration-300">
+<div class="aspect-[16/10] w-full relative overflow-hidden">
+<img alt="新会員入会式" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="/images/activities/2025-11-04_new-member/new-member01.jpg"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary text-white px-3 py-1 rounded-md text-[10px] font-bold tracking-wider">例会</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span class="text-xs font-medium font-headline">2025.11.04</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface leading-snug group-hover:text-secondary transition-colors">新会員入会式</h3>
+</div>
+</article>
+</a>
+<!-- Activity Card: 納涼例会 -->
+<a class="block activity-card" data-category="例会" href="/activity_detail/noryo.html">
+<article class="group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden shadow-[0_8px_32px_rgba(27,28,28,0.04)] active:scale-98 transition-all duration-300">
+<div class="aspect-[16/10] w-full relative overflow-hidden">
+<img alt="納涼例会" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="/images/activities/2025-08-20_noryo/noryo01.jpg"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary text-white px-3 py-1 rounded-md text-[10px] font-bold tracking-wider">例会</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span class="text-xs font-medium font-headline">2025.08.20</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface leading-snug group-hover:text-secondary transition-colors">納涼例会</h3>
+</div>
+</article>
+</a>
+<!-- Activity Card: 結成60周年式典 -->
+<a class="block activity-card" data-category="式典" href="/activity_detail/60th_anniversary.html">
+<article class="group relative bg-surface-container-lowest rounded-[1.5rem] overflow-hidden shadow-[0_8px_32px_rgba(27,28,28,0.04)] active:scale-98 transition-all duration-300">
+<div class="aspect-[16/10] w-full relative overflow-hidden">
+<img alt="福岡中央ライオンズクラブ結成60周年式典" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="/images/activities/2023-03-29_60th-anniversary/anniversary01.jpg"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary text-white px-3 py-1 rounded-md text-[10px] font-bold tracking-wider">式典</span>
+</div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2 text-on-surface-variant/60">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span class="text-xs font-medium font-headline">2023.03.29</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface leading-snug group-hover:text-secondary transition-colors">福岡中央ライオンズクラブ結成60周年式典</h3>
+</div>
+</article>
+</a>
+</div>
+<!-- Load More Button -->
+<div class="mt-12 flex justify-center" id="load-more-wrap">
+<button id="load-more-btn" class="group flex items-center gap-3 bg-surface-container-low px-8 py-4 rounded-full border border-outline-variant/10 hover:bg-surface-container-high transition-all active:scale-95">
+<span class="text-on-surface font-bold text-sm tracking-wide">もっと見る</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-y-1 transition-transform">expand_more</span>
+</button>
+</div>
+<script>
+(function() {
+  var INITIAL = 5;
+  var PER_PAGE = 5;
+  var allCards = Array.from(document.querySelectorAll('.activity-card'));
+  var filterBtns = Array.from(document.querySelectorAll('.filter-btn'));
+  var loadMoreWrap = document.getElementById('load-more-wrap');
+  var loadMoreBtn = document.getElementById('load-more-btn');
+  var currentFilter = 'all';
+  var shown = 0;
+
+  var activeClass = 'bg-secondary-container text-on-secondary-container font-bold shadow-sm';
+  var inactiveClass = 'bg-surface-container-lowest text-on-surface-variant border border-outline-variant/15 font-medium hover:bg-surface-container-high';
+
+  function getFiltered() {
+    if (currentFilter === 'all') return allCards;
+    return allCards.filter(function(c) { return c.dataset.category === currentFilter; });
+  }
+
+  function render() {
+    var filtered = getFiltered();
+    shown = 0;
+    allCards.forEach(function(c) { c.classList.add('hidden'); });
+    showNext(INITIAL, filtered);
+  }
+
+  function showNext(count, filtered) {
+    if (!filtered) filtered = getFiltered();
+    var end = Math.min(shown + count, filtered.length);
+    for (var i = shown; i < end; i++) {
+      filtered[i].classList.remove('hidden');
+    }
+    shown = end;
+    loadMoreWrap.style.display = shown >= filtered.length ? 'none' : 'flex';
+  }
+
+  function updateBtnStyles() {
+    filterBtns.forEach(function(btn) {
+      var isActive = btn.dataset.category === currentFilter;
+      btn.className = 'filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm transition-colors '
+        + (isActive ? activeClass : inactiveClass);
+    });
+  }
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      currentFilter = btn.dataset.category;
+      updateBtnStyles();
+      render();
+    });
+  });
+
+  loadMoreBtn.addEventListener('click', function() {
+    showNext(PER_PAGE);
+  });
+
+  updateBtnStyles();
+  render();
+})();
+</script>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-[#f6f3f2] flex items-center justify-center px-8 py-8 mb-24">
+<div class="text-[10px] text-[#1b1c1c]/50 font-label">© 2026 福岡中央ライオンズクラブ</div>
+</footer>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-3 bg-[#fbf9f8]/85 backdrop-blur-lg rounded-t-[1.5rem] shadow-[0_-4px_20px_rgba(0,0,0,0.04)]">
+<a class="flex flex-col items-center justify-center text-[#1b1c1c] opacity-60 px-3 py-1 rounded-2xl transition-all" href="/">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">HOME</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1c] opacity-60 px-3 py-1 rounded-2xl transition-all" href="/schedule/">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">スケジュール</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1d5fa8] bg-[#7ab0ff]/10 px-3 py-1 rounded-2xl transition-all" href="/activities/">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">活動報告</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1c] opacity-60 px-3 py-1 rounded-2xl transition-all" href="/about/">
+<span class="material-symbols-outlined">info</span>
+<span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">クラブ紹介</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1c] opacity-60 px-3 py-1 rounded-2xl transition-all" href="/contact/">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">お問い合わせ</span>
+</a>
+</nav>
+</body></html>

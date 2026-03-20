@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error-container": "#ffdad6",
+              "on-surface": "#1b1c1c",
+              "surface-container": "#f0eded",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#ffdad5",
+              "background": "#fbf9f8",
+              "on-error": "#ffffff",
+              "outline-variant": "#e7bdb7",
+              "outline": "#926f6a",
+              "on-tertiary-container": "#ffeee0",
+              "surface-tint": "#c00010",
+              "tertiary": "#7d4900",
+              "secondary-fixed-dim": "#a6c8ff",
+              "secondary": "#1d5fa8",
+              "tertiary-fixed": "#ffdcbd",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#e4e2e1",
+              "on-primary-fixed-variant": "#930009",
+              "surface-bright": "#fbf9f8",
+              "on-primary-container": "#ffedeb",
+              "surface-variant": "#e4e2e1",
+              "on-background": "#1b1c1c",
+              "surface-dim": "#dcd9d9",
+              "on-surface-variant": "#5d3f3c",
+              "surface-container-high": "#eae8e7",
+              "on-secondary-fixed": "#001c3b",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed": "#410002",
+              "primary-fixed-dim": "#ffb4ab",
+              "inverse-surface": "#303030",
+              "secondary-container": "#7ab0ff",
+              "primary-container": "#d9161b",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#693c00",
+              "on-error-container": "#93000a",
+              "surface": "#fbf9f8",
+              "inverse-on-surface": "#f3f0f0",
+              "on-tertiary-fixed": "#2c1600",
+              "tertiary-container": "#9f5e00",
+              "tertiary-fixed-dim": "#ffb86e",
+              "secondary-fixed": "#d5e3ff",
+              "inverse-primary": "#ffb4ab",
+              "primary": "#af000d",
+              "surface-container-low": "#f6f3f2",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed-variant": "#004787",
+              "on-secondary-container": "#00417e"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Inter", "Noto Sans JP"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body { font-family: 'Noto Sans JP', 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#fbf9f8]/85 backdrop-blur-md shadow-[0_8px_32px_rgba(27,28,28,0.06)] h-16 flex items-center justify-between px-6">
+<a href="/" class="flex items-center gap-2">
+<img src="/images/logo2.png" alt="Lions Club" class="h-9 w-9 object-contain flex-shrink-0"/>
+<span class="font-['Noto_Sans_JP'] font-bold text-sm tracking-tight text-[#1b1c1c]">福岡中央ライオンズクラブ</span>
+</a>
+<a href="/members/" class="w-9 h-9 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-size:20px;">lock</span>
+</a>
+</header>
+<main class="pt-20 pb-32 px-4 max-w-2xl mx-auto w-full">
+<!-- Page Header -->
+<section class="mb-8 mt-4">
+<span class="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">About Us</span>
+<h2 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface mb-2">クラブ紹介</h2>
+<p class="text-on-surface-variant text-sm leading-relaxed">1963年結成。「We Serve」の精神で地域社会に貢献し続けています。</p>
+</section>
+
+<!-- クラブ概要 -->
+<section class="mb-10">
+<h3 class="text-xl font-bold font-headline mb-6 flex items-center gap-2">
+<span class="w-1 h-6 bg-primary-container rounded-full"></span>
+クラブ概要
+</h3>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<div class="divide-y divide-surface-container">
+<div class="flex px-5 py-3">
+<span class="text-xs font-bold text-on-surface-variant w-24 flex-shrink-0">結成日</span>
+<span class="text-sm text-on-surface">1963年7月17日</span>
+</div>
+<div class="flex px-5 py-3">
+<span class="text-xs font-bold text-on-surface-variant w-24 flex-shrink-0">CN</span>
+<span class="text-sm text-on-surface">1967年3月29日</span>
+</div>
+<div class="flex px-5 py-3">
+<span class="text-xs font-bold text-on-surface-variant w-24 flex-shrink-0">スポンサー</span>
+<span class="text-sm text-on-surface">福岡ライオンズクラブ</span>
+</div>
+<div class="flex px-5 py-3">
+<span class="text-xs font-bold text-on-surface-variant w-24 flex-shrink-0">地区</span>
+<span class="text-sm text-on-surface">337-A地区 4R 1Z</span>
+</div>
+<div class="flex px-5 py-3">
+<span class="text-xs font-bold text-on-surface-variant w-24 flex-shrink-0">姉妹クラブ</span>
+<span class="text-sm text-on-surface">高雄市南光L.C / 鹿児島さつまL.C</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 役員紹介 -->
+<section class="mb-10">
+<h3 class="text-xl font-bold font-headline mb-6 flex items-center gap-2">
+<span class="w-1 h-6 bg-primary-container rounded-full"></span>
+役員紹介（第63期）
+</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center">
+<div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low">
+<img src="/images/about/mizukami.jpg" alt="水上 亨併" class="w-full h-full object-cover"/>
+</div>
+<span class="block text-[10px] font-bold text-primary tracking-widest uppercase mb-1">会長</span>
+<p class="font-bold text-sm">水上 亨併</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center">
+<div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low">
+<img src="/images/about/tanemura.jpg" alt="種村 剛生" class="w-full h-full object-cover"/>
+</div>
+<span class="block text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">前会長</span>
+<p class="font-bold text-sm">種村 剛生</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center">
+<div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low flex items-center justify-center">
+<img src="/images/about/yoshimochi.jpg" alt="吉持 直美" class="w-full h-full object-cover"/>
+</div>
+<span class="block text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">第一副会長</span>
+<p class="font-bold text-sm">吉持 直美</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center">
+<div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low flex items-center justify-center">
+<img src="/images/about/miyazaki.jpg" alt="宮崎 増恵" class="w-full h-full object-cover"/>
+</div>
+<span class="block text-[10px] font-bold text-secondary tracking-widest uppercase mb-1">幹事</span>
+<p class="font-bold text-sm">宮崎 増恵</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center">
+<div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low flex items-center justify-center">
+<img src="/images/about/taguchi.jpg" alt="田口 吾郎" class="w-full h-full object-cover"/>
+</div>
+<span class="block text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">会計</span>
+<p class="font-bold text-sm">田口 吾郎</p>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center">
+<div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low flex items-center justify-center">
+<img src="/images/about/matsuno.jpg" alt="松野 英明" class="w-full h-full object-cover"/>
+</div>
+<span class="block text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">会計理事</span>
+<p class="font-bold text-sm">松野 英明</p>
+</div>
+</div>
+</section>
+
+<!-- 第63期 会長スローガン -->
+<section class="mb-10">
+<h3 class="text-xl font-bold font-headline mb-6 flex items-center gap-2">
+<span class="w-1 h-6 bg-primary-container rounded-full"></span>
+第63期 会長スローガン【結束・奉仕】
+</h3>
+<div class="bg-surface-container-lowest rounded-xl p-5 space-y-4">
+<p class="text-sm text-on-surface-variant leading-relaxed">福岡中央ライオンズクラブの歴史を重んじ、「We Serve」の精神のもとに力を合わせ、クラブとしての一体感を強め、全員の力で奉仕活動を行っていきます。</p>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5" style="font-size:20px;">flag</span>
+<div>
+<p class="text-sm font-bold text-on-surface">年間テーマ</p>
+<p class="text-sm text-on-surface-variant">子どもたちを支援する</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary flex-shrink-0 mt-0.5" style="font-size:20px;">checklist</span>
+<div>
+<p class="text-sm font-bold text-on-surface">具体的な取組</p>
+<ul class="text-sm text-on-surface-variant space-y-1 mt-1">
+<li>1. 奉仕活動の活性化</li>
+<li>2. 委員会の活性化</li>
+<li>3. 会員増強：クラブ存続のために必要</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- クラブの歩み（抜粋） -->
+<section class="mb-10">
+<h3 class="text-xl font-bold font-headline mb-6 flex items-center gap-2">
+<span class="w-1 h-6 bg-primary-container rounded-full"></span>
+クラブの歩み
+</h3>
+<div class="space-y-6 relative before:content-[''] before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-highest">
+<div class="relative pl-10">
+<div class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-white border-4 border-primary-container z-10"></div>
+<span class="block text-sm font-bold text-primary mb-1">1963年</span>
+<h4 class="font-bold text-sm mb-1">クラブ結成</h4>
+<p class="text-xs text-on-surface-variant">チャーターメンバー42名。九大病院図書寄贈、新潟地震災害見舞金</p>
+</div>
+<div class="relative pl-10">
+<div class="absolute left-1.5 top-2 w-3 h-3 rounded-full bg-surface-container-highest z-10"></div>
+<span class="block text-sm font-bold text-on-surface-variant mb-1">1978年</span>
+<h4 class="font-bold text-sm mb-1">交通遺児育英基金設立</h4>
+<p class="text-xs text-on-surface-variant">福岡南警察署へ交通安全用教具寄贈</p>
+</div>
+<div class="relative pl-10">
+<div class="absolute left-1.5 top-2 w-3 h-3 rounded-full bg-surface-container-highest z-10"></div>
+<span class="block text-sm font-bold text-on-surface-variant mb-1">1986年</span>
+<h4 class="font-bold text-sm mb-1">台湾南光国際獅子会と姉妹提携</h4>
+<p class="text-xs text-on-surface-variant">国際交流の第一歩</p>
+</div>
+<div class="relative pl-10">
+<div class="absolute left-1.5 top-2 w-3 h-3 rounded-full bg-surface-container-highest z-10"></div>
+<span class="block text-sm font-bold text-on-surface-variant mb-1">1992年</span>
+<h4 class="font-bold text-sm mb-1">札幌中央LCと友好クラブ締結</h4>
+<p class="text-xs text-on-surface-variant">台湾南光獅子会との相互訪問も継続</p>
+</div>
+<div class="relative pl-10">
+<div class="absolute left-1.5 top-2 w-3 h-3 rounded-full bg-surface-container-highest z-10"></div>
+<span class="block text-sm font-bold text-on-surface-variant mb-1">1998年</span>
+<h4 class="font-bold text-sm mb-1">クラブ創立35周年記念式典</h4>
+<p class="text-xs text-on-surface-variant">松風園（一日父親）事業を継続実施</p>
+</div>
+<div class="relative pl-10">
+<div class="absolute left-1.5 top-2 w-3 h-3 rounded-full bg-surface-container-highest z-10"></div>
+<span class="block text-sm font-bold text-on-surface-variant mb-1">2011年</span>
+<h4 class="font-bold text-sm mb-1">東日本大震災義援金</h4>
+<p class="text-xs text-on-surface-variant">交通安全啓蒙活動、パプアニューギニア学童支援</p>
+</div>
+<div class="relative pl-10">
+<div class="absolute left-1.5 top-2 w-3 h-3 rounded-full bg-surface-container-highest z-10"></div>
+<span class="block text-sm font-bold text-on-surface-variant mb-1">2023年</span>
+<h4 class="font-bold text-sm mb-1">結成60周年記念式典</h4>
+<p class="text-xs text-on-surface-variant">ヘアドネーション、こども食堂、柚の木学園支援</p>
+</div>
+</div>
+</section>
+
+<!-- 例会会場・アクセス -->
+<section>
+<h3 class="text-xl font-bold font-headline mb-6 flex items-center gap-2">
+<span class="w-1 h-6 bg-primary-container rounded-full"></span>
+例会会場・アクセス
+</h3>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<div class="w-full aspect-video">
+<iframe src="https://www.google.com/maps?q=KKRホテル博多+福岡県福岡市博多区博多駅東2-10-19&output=embed&z=16" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<div class="p-5">
+<h4 class="font-bold text-lg mb-2">KKRホテル博多</h4>
+<p class="text-sm text-on-surface-variant mb-4 flex items-start gap-2">
+<span class="material-symbols-outlined text-base mt-0.5 text-primary">location_on</span>
+〒812-0013 福岡県福岡市博多区博多駅東2-10-19
+</p>
+<div class="flex items-center gap-4 py-3 border-t border-surface-container">
+<div class="flex-1">
+<span class="block text-[10px] text-on-surface-variant font-bold">第1例会</span>
+<p class="text-sm font-bold">第2火曜日 12:15〜</p>
+</div>
+<div class="flex-1 border-l border-surface-container pl-4">
+<span class="block text-[10px] text-on-surface-variant font-bold">第2例会</span>
+<p class="text-sm font-bold">第4火曜日 18:30〜</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-[#f6f3f2] flex items-center justify-center px-8 py-8 mb-24">
+<div class="text-[10px] text-[#1b1c1c]/50 font-label">© 2026 福岡中央ライオンズクラブ</div>
+</footer>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-3 bg-[#fbf9f8]/85 backdrop-blur-lg rounded-t-[1.5rem] shadow-[0_-4px_20px_rgba(0,0,0,0.04)]">
+<a class="flex flex-col items-center justify-center text-[#1b1c1c] opacity-60 px-3 py-1 rounded-2xl transition-all" href="/">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">HOME</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1c] opacity-60 px-3 py-1 rounded-2xl transition-all" href="/schedule/">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">スケジュール</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1c] opacity-60 px-3 py-1 rounded-2xl transition-all" href="/activities/">
+<span class="material-symbols-outlined">volunteer_activism</span>
+<span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">活動報告</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1d5fa8] bg-[#7ab0ff]/10 px-3 py-1 rounded-2xl transition-all" href="/about/">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">info</span>
+<span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">クラブ紹介</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1c] opacity-60 px-3 py-1 rounded-2xl transition-all" href="/contact/">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-['Noto_Sans_JP'] text-[10px] font-medium tracking-wide mt-1">お問い合わせ</span>
+</a>
+</nav>
+</body></html>
