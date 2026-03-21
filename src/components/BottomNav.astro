@@ -12,7 +12,8 @@ const tabs = [
   { id: 'contact', href: '/contact/', icon: 'mail', label: '連絡' },
 ];
 ---
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-6 pt-3 bg-[#fbf9f8]/85 backdrop-blur-lg rounded-t-[1.5rem] shadow-[0_-4px_20px_rgba(0,0,0,0.04)]">
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-[#fbf9f8]/85 backdrop-blur-lg rounded-t-[1.5rem] shadow-[0_-4px_20px_rgba(0,0,0,0.04)]">
+<div class="max-w-2xl mx-auto flex justify-around items-center px-2 pb-6 pt-3">
   {tabs.map(tab => {
     const isActive = tab.id === activePage;
     const activeClass = 'text-[#1d5fa8] bg-[#7ab0ff]/10 rounded-2xl';
@@ -30,4 +31,5 @@ const tabs = [
       </a>
     );
   })}
+</div>
 </nav>
