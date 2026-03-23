@@ -10,6 +10,7 @@ const calendarEvents = events.map(ev => ({
   category: ev.category,
   image: ev.imageDir && ev.heroImage ? `/images/activities/${ev.imageDir}/${ev.heroImage}` : undefined,
   desc: ev.desc,
+  location: ev.location || undefined,
 }));
 ---
 <BaseLayout title="スケジュール" activePage="schedule">
@@ -69,7 +70,10 @@ const calendarEvents = events.map(ev => ({
   var events = calendarEvents;
 
   var eventMap = {};
-  events.forEach(function (ev) { eventMap[ev.date] = ev; });
+  events.forEach(function (ev) {
+    if (!eventMap[ev.date]) eventMap[ev.date] = [];
+    eventMap[ev.date].push(ev);
+  });
 
   var today = new Date();
   var viewYear = today.getFullYear();
@@ -118,6 +122,7 @@ const calendarEvents = events.map(ev => ({
       + '<span class="material-symbols-outlined" style="font-size:14px;">calendar_today</span>'
       + '<span class="text-xs font-medium">' + formatDateDisplay(ev.date) + '</span></div>'
       + '<h3 class="text-lg font-bold text-on-surface leading-snug mb-2">' + ev.title + '</h3>'
+      + (ev.location ? '<div class="flex items-center gap-1.5 text-on-surface-variant/70 mb-1.5"><span class="material-symbols-outlined" style="font-size:14px;">location_on</span><span class="text-xs font-medium">' + ev.location + '</span></div>' : '')
       + '<p class="text-sm text-on-surface-variant leading-relaxed">' + ev.desc + '</p>'
       + linkHtml
       + '</div>';
@@ -146,7 +151,7 @@ const calendarEvents = events.map(ev => ({
 
     for (var d = 1; d <= daysInMonth; d++) {
       var dateStr = toDateStr(viewYear, viewMonth, d);
-      var ev = eventMap[dateStr] || null;
+      var evList = eventMap[dateStr] || [];
       var colIndex = (startOffset + d - 1) % 7;
       var isSat = colIndex === 5;
       var isSun = colIndex === 6;
@@ -165,7 +170,7 @@ const calendarEvents = events.map(ev => ({
       dayNum.textContent = d;
       cell.appendChild(dayNum);
 
-      if (ev) {
+      evList.forEach(function(ev) {
         var colors = getColors(ev.category);
         var tag = document.createElement('div');
         tag.className = colors.tag + ' text-white text-[8px] font-bold rounded px-1 py-0.5 mt-0.5 leading-tight truncate cursor-pointer hover:opacity-80 transition-opacity';
@@ -175,7 +180,7 @@ const calendarEvents = events.map(ev => ({
           tag.addEventListener('click', function() { showPopup(e); });
         })(ev);
         cell.appendChild(tag);
-      }
+      });
 
       grid.appendChild(cell);
     }
