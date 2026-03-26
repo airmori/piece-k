@@ -97,7 +97,7 @@ const imageBase = `/images/activities/${event.imageDir}`;
                   return (
                     <>
                       <p>{p}</p>
-                      <GallerySlider imageDir={event.imageDir} gridPhotos={event.gridPhotos || []} sliderPhotos={event.sliderPhotos || []} />
+                      <GallerySlider imageDir={event.imageDir} gridPhotos={event.gridPhotos || []} sliderPhotos={event.sliderPhotos || []} portrait={event.portrait || false} />
                     </>
                   );
                 }
