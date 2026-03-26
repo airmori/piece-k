@@ -3,12 +3,14 @@ interface Props {
   imageDir: string;
   gridPhotos: string[];
   sliderPhotos: string[];
+  portrait?: boolean;
 }
 
-const { imageDir, gridPhotos, sliderPhotos } = Astro.props;
+const { imageDir, gridPhotos, sliderPhotos, portrait = false } = Astro.props;
 
 const hasContent = gridPhotos.length > 0 || sliderPhotos.length > 0;
 const basePath = `/images/activities/${imageDir}`;
+const sliderAspect = portrait ? 'aspect-[3/4]' : 'aspect-[4/3]';
 ---
 
 {hasContent && (
@@ -31,7 +33,7 @@ const basePath = `/images/activities/${imageDir}`;
       <div class="relative mt-6">
         <div class="flex gap-3 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4 -mx-6 px-6 gallery-slider">
           {sliderPhotos.map((photo, i) => (
-            <div class="snap-center shrink-0 w-[85%] aspect-[4/3] rounded-xl overflow-hidden bg-surface-container">
+            <div class:list={['snap-center shrink-0 w-[85%] rounded-xl overflow-hidden bg-surface-container', sliderAspect]}>
               <img
                 alt={`写真${gridPhotos.length + i + 1}`}
                 class="w-full h-full object-cover"
