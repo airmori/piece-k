@@ -30,7 +30,12 @@
       "Bash(cd:*)",
       "Bash(mv 01.png kawahara01.png)",
       "Bash(rm -f desktop.ini)",
-      "Bash(gh repo:*])"
+      "Bash(npx sharp-cli:*)",
+      "Bash(mv S__76513399_0.jpg chiran01.jpg)",
+      "Bash(mv S__76513400_0.jpg chiran02.jpg)",
+      "Bash(mv S__76513401_0.jpg chiran03.jpg)",
+      "Bash(mv S__76513402_0.jpg chiran04.jpg)",
+      "Bash(mv S__76513403_0.jpg chiran05.jpg)"
     ]
   }
 }
