@@ -8,9 +8,9 @@ const activitiesWithContent = events
   .sort((a, b) => b.date.localeCompare(a.date));
 
 const categoryBadgeMap: Record<string, string> = {
-  '例会': 'bg-secondary',
-  'イベント': 'bg-tertiary',
-  '式典': 'bg-primary',
+  'セミナー': 'bg-primary',
+  'ワークショップ': 'bg-tertiary',
+  '交流会': 'bg-secondary',
 };
 
 function formatDateDot(dateStr: string) {
@@ -23,15 +23,15 @@ function formatDateDot(dateStr: string) {
 <section class="mb-8 mt-4">
   <span class="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Our Impact</span>
   <h2 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface mb-2">Activities</h2>
-  <p class="text-on-surface-variant text-sm leading-relaxed">福岡の街と共に歩む、私たちの奉仕活動の記録。</p>
+  <p class="text-on-surface-variant text-sm leading-relaxed">大学生の挑戦と成長の記録。</p>
 </section>
 
 <!-- Category Filter (Horizontal Scroll) -->
 <div class="flex gap-2 overflow-x-auto pb-6 -mx-4 px-4 no-scrollbar" id="filter-bar">
   <button class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-bold shadow-sm transition-colors" data-category="all">すべて</button>
-  <button class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-colors" data-category="例会">例会</button>
-  <button class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-colors" data-category="イベント">イベント</button>
-  <button class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-colors" data-category="式典">式典</button>
+  <button class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-colors" data-category="セミナー">セミナー</button>
+  <button class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-colors" data-category="ワークショップ">ワークショップ</button>
+  <button class="filter-btn flex-shrink-0 px-5 py-2 rounded-full text-sm font-medium transition-colors" data-category="交流会">交流会</button>
 </div>
 
 <!-- Activities Card Grid -->

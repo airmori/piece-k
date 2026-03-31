@@ -1,10 +1,10 @@
 {
-  "name": "福岡中央ライオンズクラブ",
-  "short_name": "福岡中央LC",
+  "name": "ガクチャン",
+  "short_name": "ガクチャン",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#fbf9f8",
-  "theme_color": "#af000d",
+  "background_color": "#fafbfd",
+  "theme_color": "#2E5DB5",
   "icons": [
     {
       "src": "/icon-192.png",

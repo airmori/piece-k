@@ -55,15 +55,15 @@ function formatDateDot(dateStr: string) {
 }
 
 const categoryColorMap: Record<string, { bg: string; text: string }> = {
-  '例会': { bg: 'bg-secondary/10', text: 'text-secondary' },
-  'イベント': { bg: 'bg-tertiary/10', text: 'text-tertiary' },
-  '式典': { bg: 'bg-primary/10', text: 'text-primary' },
+  'セミナー': { bg: 'bg-primary/10', text: 'text-primary' },
+  'ワークショップ': { bg: 'bg-tertiary/10', text: 'text-tertiary' },
+  '交流会': { bg: 'bg-secondary/10', text: 'text-secondary' },
 };
 
 const categoryBadgeMap: Record<string, string> = {
-  '例会': 'bg-secondary text-on-secondary',
-  'イベント': 'bg-tertiary text-on-tertiary',
-  '式典': 'bg-primary text-on-primary',
+  'セミナー': 'bg-primary text-on-primary',
+  'ワークショップ': 'bg-tertiary text-on-tertiary',
+  '交流会': 'bg-secondary text-on-secondary',
 };
 ---
 <BaseLayout title="ホーム" activePage="home">
@@ -75,8 +75,8 @@ const categoryBadgeMap: Record<string, string> = {
     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
   </div>
   <div class="relative z-10 w-full">
-    <h2 class="font-headline text-5xl font-extrabold text-white leading-tight mb-4 tracking-tighter italic">We Serve</h2>
-    <p class="text-white/90 text-lg font-medium max-w-xs leading-relaxed">福岡の街を、もっと輝かせたい。<br/>私たちは奉仕の力で繋がっています。</p>
+    <h2 class="font-headline text-5xl font-extrabold text-white leading-tight mb-4 tracking-tighter italic">Gakuchan</h2>
+    <p class="text-white/90 text-lg font-medium max-w-xs leading-relaxed">大学生にチャンスを！<br/>挑戦と成長の機会を届けます。</p>
   </div>
 </section>
 
@@ -172,8 +172,8 @@ const categoryBadgeMap: Record<string, string> = {
 <section class="mt-12 px-6">
   <div class="bg-secondary rounded-xl p-8 text-center relative overflow-hidden">
     <div class="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12"></div>
-    <h3 class="text-white font-bold text-xl mb-2">共に奉仕をしませんか？</h3>
-    <p class="text-white/80 text-sm mb-6">福岡中央ライオンズクラブでは、随時新入会員を募集しています。</p>
+    <h3 class="text-white font-bold text-xl mb-2">一緒に挑戦しませんか？</h3>
+    <p class="text-white/80 text-sm mb-6">ガクチャンでは、一緒に活動する大学生メンバーを募集しています。</p>
     <a href="/about/" class="inline-block bg-white text-secondary font-bold px-8 py-3 rounded-full shadow-lg transition-transform active:scale-95">
       詳しい案内を見る
     </a>

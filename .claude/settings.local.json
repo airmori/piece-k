@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(git pull:*)",
+      "Bash(mv IMG_4352.JPG kitamura-soudan01.jpg)",
+      "Bash(mv IMG_3449.JPG kitamura-soudan02.jpg)",
+      "Bash(mv IMG_3722.JPG kitamura-soudan03.jpg)",
+      "Bash(mv IMG_4140.JPG kitamura-soudan04.jpg)",
+      "Bash(mv IMG_4293.JPG kitamura-soudan05.jpg)",
+      "Bash(mv 20260328_03.JPG ai-study01.jpg)",
+      "Bash(mv 20260328_02.jpg ai-study02.jpg)",
+      "Bash(mv 20260328_01.jpeg ai-study03.jpg)",
+      "Bash(git checkout:*)",
+      "Bash(cmd.exe /c \"cd C:\\\\\\\\Users\\\\\\\\ymori\\\\\\\\Desktop\\\\\\\\github\\\\\\\\fukuoka-lions && npm run dev\")",
+      "Bash(cmd.exe /c \"where npm\")",
+      "Bash(cmd.exe /c \"where npm 2>&1\")",
+      "Bash(export PATH=\"$PATH:/c/Program Files/nodejs:/c/Users/ymori/AppData/Roaming/npm\")",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Users/ymori/AppData/Local/**)",
+      "Read(//c/Users/ymori/AppData/Roaming/**)",
+      "Read(//c/Users/ymori/**)",
+      "Read(//c/Users/ymori/scoop/apps/**)",
+      "Bash(powershell.exe -Command \"Get-Command npm | Select-Object -ExpandProperty Source\")",
+      "Bash(powershell.exe -Command \"Get-Command node -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source; Get-Command npm -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source\")",
+      "Bash(mv 01.jpg tabidachi01.jpg)",
+      "Bash(mv 02.jpg tabidachi02.jpg)",
+      "Bash(cd:*)",
+      "Bash(mv 01.png kawahara01.png)",
+      "Bash(rm -f desktop.ini)",
+      "Bash(gh repo:*])"
+    ]
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "name": "fukuoka-lions-home-page",
+  "name": "gakuchan",
   "type": "module",
   "scripts": {
     "dev": "astro dev",

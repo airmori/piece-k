@@ -15,9 +15,9 @@ const allEventsWithContent = events.filter(e => e.slug && e.content);
 
 // Category color mapping
 const categoryColors = {
-  '例会': 'bg-secondary text-white',
-  'イベント': 'bg-tertiary text-white',
-  '式典': 'bg-primary text-white',
+  'セミナー': 'bg-primary text-white',
+  'ワークショップ': 'bg-tertiary text-white',
+  '交流会': 'bg-secondary text-on-secondary',
 };
 const badgeClass = categoryColors[event.category] || 'bg-on-surface/60 text-white';
 
