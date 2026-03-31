@@ -1,6 +1,7 @@
 {
   "name": "gakuchan",
   "compatibility_date": "2025-12-06",
+  "pages_build_output_dir": "./dist",
   "main": "src/index.js",
   "assets": {
     "directory": "./dist",
