@@ -1,5 +1,5 @@
 {
-  "name": "gakuchan",
+  "name": "piece-k",
   "type": "module",
   "scripts": {
     "dev": "astro dev",

@@ -1,187 +1,88 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="ガクチャンについて" activePage="about">
+<BaseLayout title="PieceKについて" activePage="about">
 <main class="pt-20 pb-32 px-4 max-w-2xl mx-auto w-full">
 <!-- Page Header -->
 <section class="mb-8 mt-4">
-  <span class="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">About Us</span>
-  <h2 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface mb-2">ガクチャンについて</h2>
-  <p class="text-on-surface-variant text-sm leading-relaxed">大学生にチャンスを。挑戦と成長の機会を届けるコミュニティです。</p>
+  <span class="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">About</span>
+  <h2 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface mb-2">PieceKについて</h2>
+  <p class="text-on-surface-variant text-sm leading-relaxed">日常のひとかけら（Piece）を大切に、趣味の記録を発信しています。</p>
 </section>
 
-<!-- 団体概要 -->
+<!-- サイト概要 -->
 <section class="mb-10">
   <h3 class="text-xl font-bold font-headline mb-6 flex items-center gap-2">
     <span class="w-1 h-6 bg-primary-container rounded-full"></span>
-    団体概要
+    サイト概要
   </h3>
   <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
     <div class="divide-y divide-surface-container">
       <div class="flex px-5 py-3">
-        <span class="text-xs font-bold text-on-surface-variant w-24 flex-shrink-0">設立</span>
-        <span class="text-sm text-on-surface">2024年4月</span>
+        <span class="text-xs font-bold text-on-surface-variant w-24 flex-shrink-0">サイト名</span>
+        <span class="text-sm text-on-surface">PieceK</span>
       </div>
       <div class="flex px-5 py-3">
-        <span class="text-xs font-bold text-on-surface-variant w-24 flex-shrink-0">拠点</span>
-        <span class="text-sm text-on-surface">東京都台東区浅草橋</span>
+        <span class="text-xs font-bold text-on-surface-variant w-24 flex-shrink-0">運営</span>
+        <span class="text-sm text-on-surface">kiyo</span>
       </div>
       <div class="flex px-5 py-3">
-        <span class="text-xs font-bold text-on-surface-variant w-24 flex-shrink-0">対象</span>
-        <span class="text-sm text-on-surface">福岡県内の大学生</span>
+        <span class="text-xs font-bold text-on-surface-variant w-24 flex-shrink-0">テーマ</span>
+        <span class="text-sm text-on-surface">カフェ・ゴルフ・ディズニーなど趣味の記録</span>
       </div>
       <div class="flex px-5 py-3">
-        <span class="text-xs font-bold text-on-surface-variant w-24 flex-shrink-0">メンバー数</span>
-        <span class="text-sm text-on-surface">約50名</span>
-      </div>
-      <div class="flex px-5 py-3">
-        <span class="text-xs font-bold text-on-surface-variant w-24 flex-shrink-0">活動頻度</span>
-        <span class="text-sm text-on-surface">月2〜3回のイベント + 定例ミーティング</span>
+        <span class="text-xs font-bold text-on-surface-variant w-24 flex-shrink-0">開設</span>
+        <span class="text-sm text-on-surface">2026年</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- メンバー紹介 -->
+<!-- 運営 -->
 <section class="mb-10">
   <h3 class="text-xl font-bold font-headline mb-6 flex items-center gap-2">
     <span class="w-1 h-6 bg-primary-container rounded-full"></span>
-    運営メンバー
+    運営
   </h3>
-  <div class="grid grid-cols-2 gap-4">
-    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center scroll-reveal" style="transition-delay: 0ms;">
-      <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low">
-        <img src="/images/about/mori.jpg" alt="森 大輝" class="w-full h-full object-cover" />
+  <div class="flex justify-center">
+    <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm text-center scroll-reveal w-48" style="transition-delay: 0ms;">
+      <div class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low">
+        <img src="/images/about/kiyo.png" alt="kiyo" class="w-full h-full object-cover" />
       </div>
-      <span class="block text-[10px] font-bold text-primary tracking-widest uppercase mb-1">代表</span>
-      <p class="font-bold text-sm">森 大輝</p>
-    </div>
-    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center scroll-reveal" style="transition-delay: 100ms;">
-      <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low">
-        <img src="/images/about/ishibashi.jpg" alt="石橋 美咲" class="w-full h-full object-cover" />
-      </div>
-      <span class="block text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">副代表</span>
-      <p class="font-bold text-sm">石橋 美咲</p>
-    </div>
-    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center scroll-reveal" style="transition-delay: 200ms;">
-      <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low">
-        <img src="/images/about/yasui.jpg" alt="安井 翔太" class="w-full h-full object-cover" />
-      </div>
-      <span class="block text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">イベント企画</span>
-      <p class="font-bold text-sm">安井 翔太</p>
-    </div>
-    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center scroll-reveal" style="transition-delay: 300ms;">
-      <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low">
-        <img src="/images/about/hayashi.jpg" alt="林 あかり" class="w-full h-full object-cover" />
-      </div>
-      <span class="block text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">広報</span>
-      <p class="font-bold text-sm">林 あかり</p>
-    </div>
-    <div class="bg-surface-container-lowest p-4 rounded-2xl shadow-sm text-center scroll-reveal col-span-2 max-w-[calc(50%-0.5rem)]" style="transition-delay: 400ms;">
-      <div class="w-20 h-20 mx-auto rounded-full overflow-hidden mb-3 bg-surface-container-low">
-        <img src="/images/about/komine.jpg" alt="小峰 健一" class="w-full h-full object-cover" />
-      </div>
-      <span class="block text-[10px] font-bold text-on-surface-variant tracking-widest uppercase mb-1">会計</span>
-      <p class="font-bold text-sm">小峰 健一</p>
+      <span class="block text-[10px] font-bold text-primary tracking-widest uppercase mb-1">Owner</span>
+      <p class="font-bold text-sm">kiyo</p>
     </div>
   </div>
 </section>
 
-<!-- ミッション -->
+<!-- コンセプト -->
 <section class="mb-10">
   <h3 class="text-xl font-bold font-headline mb-6 flex items-center gap-2">
     <span class="w-1 h-6 bg-primary-container rounded-full"></span>
-    ミッション
+    コンセプト
   </h3>
   <div class="bg-surface-container-lowest rounded-xl p-5 space-y-4">
-    <p class="text-lg font-bold text-on-surface">大学生にチャンスを！</p>
-    <p class="text-sm text-on-surface-variant leading-relaxed">ガクチャンは、大学生が社会に出る前に多様な経験と出会いを得られる場を提供します。キャリア、起業、スキルアップなど、あらゆる「チャンス」を届けることで、学生一人ひとりの可能性を広げます。</p>
+    <p class="text-lg font-bold text-on-surface">日常のひとかけらを、楽しく記録する。</p>
+    <p class="text-sm text-on-surface-variant leading-relaxed">PieceKは、カフェ巡り・ゴルフ・ディズニーなど趣味の記録を発信するサイトです。日常のひとかけら（Piece）を大切に、楽しい瞬間をシェアしています。</p>
     <div class="flex items-start gap-3">
-      <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5" style="font-size:20px;">flag</span>
+      <span class="material-symbols-outlined text-primary flex-shrink-0 mt-0.5" style="font-size:20px;">coffee</span>
       <div>
-        <p class="text-sm font-bold text-on-surface">ビジョン</p>
-        <p class="text-sm text-on-surface-variant">すべての大学生が自分の可能性に気づける社会をつくる</p>
+        <p class="text-sm font-bold text-on-surface">カフェ巡り</p>
+        <p class="text-sm text-on-surface-variant">ラテアートや居心地の良い空間を探す旅</p>
       </div>
     </div>
     <div class="flex items-start gap-3">
-      <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-0.5" style="font-size:20px;">checklist</span>
+      <span class="material-symbols-outlined text-secondary flex-shrink-0 mt-0.5" style="font-size:20px;">golf_course</span>
       <div>
-        <p class="text-sm font-bold text-on-surface">活動の柱</p>
-        <ul class="text-sm text-on-surface-variant space-y-1 mt-1">
-          <li>1. キャリア支援セミナーの開催</li>
-          <li>2. 起業・ビジネス体験ワークショップ</li>
-          <li>3. 企業と学生をつなぐ交流会</li>
-        </ul>
+        <p class="text-sm font-bold text-on-surface">ゴルフ</p>
+        <p class="text-sm text-on-surface-variant">自然の中でリフレッシュする最高の趣味</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- 沿革 -->
-<section class="mb-10">
-  <h3 class="text-xl font-bold font-headline mb-6 flex items-center gap-2">
-    <span class="w-1 h-6 bg-primary-container rounded-full"></span>
-    沿革
-  </h3>
-  <div class="space-y-6 relative before:content-[''] before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-highest">
-    <div class="relative pl-10">
-      <div class="absolute left-0 top-1.5 w-6 h-6 rounded-full bg-white border-4 border-primary-container z-10"></div>
-      <span class="block text-sm font-bold text-primary mb-1">2024年4月</span>
-      <h4 class="font-bold text-sm mb-1">ガクチャン設立</h4>
-      <p class="text-xs text-on-surface-variant">福岡の大学生5名で発足。「大学生にチャンスを」を合言葉に活動開始</p>
-    </div>
-    <div class="relative pl-10">
-      <div class="absolute left-1.5 top-2 w-3 h-3 rounded-full bg-surface-container-highest z-10"></div>
-      <span class="block text-sm font-bold text-on-surface-variant mb-1">2024年8月</span>
-      <h4 class="font-bold text-sm mb-1">初のキャリアセミナー開催</h4>
-      <p class="text-xs text-on-surface-variant">参加者20名。社会人メンター5名を招いて実施</p>
-    </div>
-    <div class="relative pl-10">
-      <div class="absolute left-1.5 top-2 w-3 h-3 rounded-full bg-surface-container-highest z-10"></div>
-      <span class="block text-sm font-bold text-on-surface-variant mb-1">2025年1月</span>
-      <h4 class="font-bold text-sm mb-1">メンバー30名突破</h4>
-      <p class="text-xs text-on-surface-variant">福岡大学・九州大学・西南学院大学など複数校から参加</p>
-    </div>
-    <div class="relative pl-10">
-      <div class="absolute left-1.5 top-2 w-3 h-3 rounded-full bg-surface-container-highest z-10"></div>
-      <span class="block text-sm font-bold text-on-surface-variant mb-1">2025年6月</span>
-      <h4 class="font-bold text-sm mb-1">企業連携スタート</h4>
-      <p class="text-xs text-on-surface-variant">福岡の企業10社と提携し、交流会・インターン紹介を開始</p>
-    </div>
-    <div class="relative pl-10">
-      <div class="absolute left-1.5 top-2 w-3 h-3 rounded-full bg-surface-container-highest z-10"></div>
-      <span class="block text-sm font-bold text-on-surface-variant mb-1">2026年3月</span>
-      <h4 class="font-bold text-sm mb-1">メンバー50名・累計イベント参加者500名</h4>
-      <p class="text-xs text-on-surface-variant">ウェブサイト公開、活動の輪が広がり続けています</p>
-    </div>
-  </div>
-</section>
-
-<!-- 活動拠点・アクセス -->
-<section>
-  <h3 class="text-xl font-bold font-headline mb-6 flex items-center gap-2">
-    <span class="w-1 h-6 bg-primary-container rounded-full"></span>
-    活動拠点・アクセス
-  </h3>
-  <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
-    <div class="w-full aspect-video">
-      <iframe src="https://www.google.com/maps?q=東京都台東区浅草橋3-32-5&output=embed&z=16" class="w-full h-full border-0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-    <div class="p-5">
-      <h4 class="font-bold text-lg mb-2">モリタビル 4階</h4>
-      <p class="text-sm text-on-surface-variant mb-4 flex items-start gap-2">
-        <span class="material-symbols-outlined text-base mt-0.5 text-primary">location_on</span>
-        〒111-0053 東京都台東区浅草橋3-32-5 モリタビル4階
-      </p>
-      <div class="flex items-center gap-4 py-3 border-t border-surface-container">
-        <div class="flex-1">
-          <span class="block text-[10px] text-on-surface-variant font-bold">定例ミーティング</span>
-          <p class="text-sm font-bold">月1回（土曜日）</p>
-        </div>
-        <div class="flex-1 border-l border-surface-container pl-4">
-          <span class="block text-[10px] text-on-surface-variant font-bold">イベント</span>
-          <p class="text-sm font-bold">月2〜3回</p>
-        </div>
+    <div class="flex items-start gap-3">
+      <span class="material-symbols-outlined text-tertiary flex-shrink-0 mt-0.5" style="font-size:20px;">attractions</span>
+      <div>
+        <p class="text-sm font-bold text-on-surface">ディズニー</p>
+        <p class="text-sm text-on-surface-variant">何度行っても新しい発見がある夢の世界</p>
       </div>
     </div>
   </div>

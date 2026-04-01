@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**福岡中央ライオンズクラブ**（Fukuoka Chuo Lions Club）の公式ウェブサイト。モバイルファーストの日本語サイト。
+**PieceK** — カフェ・ゴルフ・ディズニーなど趣味の記録を発信する個人サイト。モバイルファーストの日本語サイト。
 
 ## Architecture
 
@@ -26,7 +26,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Design System
 
-- **Color tokens**: Material Design 3 naming. Primary: `#af000d`（赤）, Secondary: `#1d5fa8`（青）, Tertiary: `#7d4900`（琥珀）
+- **Color tokens**: Material Design 3 naming. Primary: `#0EA5E9`（スカイブルー）, Secondary: `#38BDF8`（ライトスカイ）, Tertiary: `#0284C7`（ディープスカイ）
 - **"No-Line" rule**: 1pxボーダーで区切らない — 背景色の切り替えで区分
 - **Elevation**: ドロップシャドウよりトーナル・レイヤリング
 - **Typography**: Plus Jakarta Sans（見出し）, Noto Sans JP（本文）, Inter（ラベル）
@@ -111,4 +111,4 @@ npm run build    # ビルド
 
 ## Language
 
-サイトコンテンツは日本語。組織名は「福岡中央ライオンズクラブ」。
+サイトコンテンツは日本語。サイト名は「PieceK」。

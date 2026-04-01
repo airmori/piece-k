@@ -1,6 +1,6 @@
-# ガクチャン HP 運営マニュアル
+# PieceK HP 運営マニュアル
 
-ガクチャン（https://gakuchan.jp ）のホームページを更新する手順です。
+PieceKのホームページを更新する手順です。
 
 ---
 
@@ -13,7 +13,7 @@
 「ファイル」→「フォルダーを開く」から以下を選択：
 
 ```
-Desktop → github → gakuchan
+Desktop → github → piece-k
 ```
 
 ## 3. Claude を起動する
@@ -46,4 +46,4 @@ Claude に「ローカルで確認したい」と伝えると、確認用のペ�
 
 確認が済んだら Claude に「公開して」と伝えてください。
 
-数分後に https://gakuchan.jp に反映されます。
+数分後にサイトに反映されます。

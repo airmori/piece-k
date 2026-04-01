@@ -35,7 +35,30 @@
       "Bash(mv S__76513400_0.jpg chiran02.jpg)",
       "Bash(mv S__76513401_0.jpg chiran03.jpg)",
       "Bash(mv S__76513402_0.jpg chiran04.jpg)",
-      "Bash(mv S__76513403_0.jpg chiran05.jpg)"
+      "Bash(mv S__76513403_0.jpg chiran05.jpg)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(find /Users/kiyotaka/Desktop/github/piece-k/src -type f \\\\\\(-name *.astro -o -name *.ts -o -name *.tsx -o -name *.js -o -name *.json -o -name *.css \\\\\\))",
+      "Bash(ls -la /Users/kiyotaka/Desktop/github/piece-k/public/*.png /Users/kiyotaka/Desktop/github/piece-k/public/*.jpg)",
+      "Bash(find /Users/kiyotaka/Desktop/github/piece-k -maxdepth 2 -type f \\\\\\(-name README* -o -name *.md \\\\\\))",
+      "Bash(mv \"IMG_6237.JPG\" disneyland01.jpg)",
+      "Bash(mv \"IMG_6247 2.jpeg\" disneyland02.jpg)",
+      "Bash(mv \"IMG_6260.jpeg\" disneyland03.jpg)",
+      "Bash(mv \"IMG_5105 2.jpeg\" latte01.jpg)",
+      "Bash(mv \"IMG_6116 2.jpeg\" latte02.jpg)",
+      "Bash(mv IMG_6349.jpeg latte03.jpg)",
+      "Bash(mv IMG_6479.jpeg latte04.jpg)",
+      "Bash(mv IMG_6524.PNG golf01.jpg)",
+      "Bash(mv IMG_7040.PNG golf02.jpg)",
+      "Bash(mv \"名称未設定のデザイン \\(1\\).jpg\" golf03.jpg)",
+      "Bash(ls:*)",
+      "Bash(mv gakuchan-logo.jpg piecek-logo.jpg)",
+      "Bash(mv gakuchan-logo2.jpg piecek-logo2.jpg)",
+      "Bash(gh auth:*)",
+      "Bash(brew install:*)",
+      "Bash(gh repo:*)",
+      "Bash(git remote:*)"
     ]
   }
 }

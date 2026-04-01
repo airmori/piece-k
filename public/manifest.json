@@ -1,10 +1,10 @@
 {
-  "name": "ガクチャン",
-  "short_name": "ガクチャン",
+  "name": "PieceK",
+  "short_name": "PieceK",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fafbfd",
-  "theme_color": "#2E5DB5",
+  "theme_color": "#0EA5E9",
   "icons": [
     {
       "src": "/icon-192.png",
