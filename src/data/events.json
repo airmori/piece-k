@@ -1,5 +1,44 @@
 [
   {
+    "slug": "drive",
+    "date": "2026-04-03",
+    "title": "箱根ドライブ",
+    "category": "イベント",
+    "desc": "春の箱根へドライブ。鳥居越しに広がる青空と自然を満喫した1日。",
+    "location": "神奈川県箱根町",
+    "imageDir": "2026-04-03_drive",
+    "heroImage": "drive01.jpg",
+    "portrait": false,
+    "gridPhotos": [],
+    "sliderPhotos": [],
+    "content": {
+      "sections": [
+        {
+          "icon": "directions_car",
+          "color": "primary",
+          "title": "箱根ドライブ",
+          "paragraphs": [
+            "春の陽気に誘われて箱根へドライブ。青空の下、山々の緑が美しいドライブルートを走りました。",
+            "箱根神社の大きな鳥居の前で記念撮影。太陽の光が鳥居越しに差し込む幻想的な景色が印象的でした。"
+          ]
+        },
+        {
+          "icon": "photo_camera",
+          "color": "secondary",
+          "title": "当日の様子",
+          "paragraphs": [
+            "晴天に恵まれ、絶好のドライブ日和。鳥居の前に愛車を停めて、箱根の空気を存分に楽しみました。",
+            "自然と歴史が融合する箱根の魅力を再発見できた、充実した1日になりました。"
+          ]
+        }
+      ],
+      "voiceTitle": "参加者の声",
+      "voiceIcon": "format_quote",
+      "voice": "天気も最高で、箱根の景色を堪能できました！"
+    },
+    "youtube": null
+  },
+  {
     "slug": "disney-sea",
     "date": "2026-03-22",
     "title": "東京ディズニーシー",
