@@ -57,6 +57,11 @@ function formatDateDot(dateStr: string) {
             <span class="text-xs font-medium font-headline">{formatDateDot(ev.date)}</span>
           </div>
           <h3 class="text-lg font-bold text-on-surface leading-snug group-hover:text-secondary transition-colors">{ev.title}</h3>
+          <div class="reactions-mini flex gap-3 mt-3 text-xs text-on-surface-variant/60" data-slug={ev.slug}>
+            <span data-type="heart">❤️ <span class="reaction-count">-</span></span>
+            <span data-type="love">😍 <span class="reaction-count">-</span></span>
+            <span data-type="fire">🔥 <span class="reaction-count">-</span></span>
+          </div>
         </div>
       </article>
     </a>
@@ -141,6 +146,22 @@ function formatDateDot(dateStr: string) {
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.scroll-reveal').forEach(function(el) { observer.observe(el); });
+
+  // Fetch reaction counts for all visible cards
+  document.querySelectorAll('.reactions-mini').forEach(function(el) {
+    var slug = el.getAttribute('data-slug');
+    fetch('/api/reactions/' + slug)
+      .then(function(res) { return res.json(); })
+      .then(function(counts) {
+        el.querySelectorAll('[data-type]').forEach(function(span) {
+          var type = span.getAttribute('data-type');
+          var countEl = span.querySelector('.reaction-count');
+          var val = counts[type] || 0;
+          countEl.textContent = val;
+        });
+      })
+      .catch(function() {});
+  });
 })();
 </script>
 
