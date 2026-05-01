@@ -1,0 +1,106 @@
+---
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+
+const reactions = [
+  { type: 'heart', emoji: '❤️', label: 'いいね' },
+  { type: 'love',  emoji: '😍', label: '最高' },
+  { type: 'fire',  emoji: '🔥', label: '熱い' },
+];
+---
+
+<div class="reaction-bar flex items-center gap-3" data-slug={slug}>
+  {reactions.map(({ type, emoji, label }) => (
+    <button
+      class="reaction-btn flex items-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-lowest shadow-sm text-sm font-medium text-on-surface-variant transition-all duration-150 active:scale-95 hover:bg-surface-container-high select-none"
+      data-type={type}
+      aria-label={label}
+    >
+      <span class="emoji text-base leading-none">{emoji}</span>
+      <span class="count text-xs font-bold font-headline">0</span>
+    </button>
+  ))}
+</div>
+
+<style>
+  .reaction-btn.reacted {
+    background-color: var(--color-secondary-container);
+    color: var(--color-on-secondary-container);
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.reaction-bar').forEach((bar) => {
+    const slug = bar.dataset.slug!;
+    const apiBase = `/api/reactions/${slug}`;
+    const storageKey = `reactions:${slug}`;
+
+    type ReactionType = 'heart' | 'love' | 'fire';
+    type ReactionCounts = Record<ReactionType, number>;
+    type ReactionState = Partial<Record<ReactionType, boolean>>;
+
+    function getState(): ReactionState {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey) ?? '{}');
+      } catch {
+        return {};
+      }
+    }
+
+    function saveState(state: ReactionState) {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    function applyState(counts: ReactionCounts, state: ReactionState) {
+      bar.querySelectorAll<HTMLButtonElement>('.reaction-btn').forEach((btn) => {
+        const type = btn.dataset.type as ReactionType;
+        const countEl = btn.querySelector<HTMLElement>('.count');
+        if (countEl) countEl.textContent = String(counts[type] ?? 0);
+        if (state[type]) {
+          btn.classList.add('reacted');
+        } else {
+          btn.classList.remove('reacted');
+        }
+      });
+    }
+
+    // Fetch current counts on load
+    fetch(apiBase)
+      .then((r) => r.json())
+      .then((counts: ReactionCounts) => {
+        applyState(counts, getState());
+      })
+      .catch(() => {
+        // Silent fail — show zeros
+      });
+
+    // Handle clicks
+    bar.querySelectorAll<HTMLButtonElement>('.reaction-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const type = btn.dataset.type as ReactionType;
+        const state = getState();
+
+        // Ignore if already reacted
+        if (state[type]) return;
+
+        fetch(apiBase, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type }),
+        })
+          .then((r) => r.json())
+          .then((counts: ReactionCounts) => {
+            state[type] = true;
+            saveState(state);
+            applyState(counts, state);
+          })
+          .catch(() => {
+            // Silent fail
+          });
+      });
+    });
+  });
+</script>
