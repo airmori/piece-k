@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GallerySlider from '../../components/GallerySlider.astro';
 import RelatedActivities from '../../components/RelatedActivities.astro';
+import ReactionBar from '../../components/ReactionBar.astro';
 import events from '../../data/events.json';
 
 export function getStaticPaths() {
@@ -122,6 +123,11 @@ const imageBase = `/images/activities/${event.imageDir}`;
         <h2 class="font-headline font-bold text-xl tracking-tight text-on-surface">{event.content.voiceTitle}</h2>
       </div>
       <p class="text-on-surface-variant leading-relaxed">「{event.content.voice}」</p>
+    </section>
+
+    <!-- Reactions -->
+    <section class="flex justify-center">
+      <ReactionBar slug={event.slug} />
     </section>
 
     <!-- Related Activities -->
