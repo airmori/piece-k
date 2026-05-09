@@ -1,8 +1,5 @@
 {
   "name": "piece-k",
   "compatibility_date": "2025-12-06",
-  "pages_build_output_dir": "./dist",
-  "kv_namespaces": [
-    { "binding": "REACTIONS_KV", "id": "PLACEHOLDER" }
-  ]
+  "pages_build_output_dir": "./dist"
 }
