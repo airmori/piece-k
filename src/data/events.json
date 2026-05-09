@@ -1,5 +1,44 @@
 [
   {
+    "slug": "event-staff-trip",
+    "date": "2026-05-08",
+    "title": "イベント受付を務めた一日",
+    "category": "イベント",
+    "desc": "出張先でイベントの受付を担当。仕事終わりにはカフェでハートのラテアートとバスクチーズケーキで一息。",
+    "location": "出張先ホテル",
+    "imageDir": "2026-05-08_event-staff-trip",
+    "heroImage": "event-staff-trip01.jpg",
+    "portrait": true,
+    "gridPhotos": ["event-staff-trip02.jpg"],
+    "sliderPhotos": [],
+    "content": {
+      "sections": [
+        {
+          "icon": "coffee",
+          "color": "primary",
+          "title": "カフェでひと息",
+          "paragraphs": [
+            "出張先で立ち寄ったカフェで、ハートが描かれたラテアートと表面が香ばしく焼けたバスクチーズケーキを注文。木目調のテーブルが落ち着いた雰囲気を演出してくれました。",
+            "ふんわりとしたミルクの甘さと、しっとりとしたチーズケーキの組み合わせが絶妙で、忙しい一日の合間にホッと心が和むひとときになりました。"
+          ]
+        },
+        {
+          "icon": "hotel",
+          "color": "secondary",
+          "title": "ホテルでの一夜",
+          "paragraphs": [
+            "イベントの受付業務を終え、宿泊先のホテルへ。黄色いヘッドボードがアクセントになった、シンプルで居心地の良い客室でリラックスタイムを過ごしました。",
+            "備え付けの作務衣に着替えて、鏡越しに今日の自分を一枚。慣れない場所での緊張感と、無事に務めを果たせた達成感が入り混じる夜でした。"
+          ]
+        }
+      ],
+      "voiceTitle": "ひとこと",
+      "voiceIcon": "format_quote",
+      "voice": "出張先のカフェタイムは頑張った日のご褒美。ハートのラテアートで気持ちまで和みました。"
+    },
+    "youtube": null
+  },
+  {
     "slug": "drive",
     "date": "2026-04-03",
     "title": "箱根ドライブ",
